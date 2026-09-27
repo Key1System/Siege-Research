@@ -1,0 +1,134 @@
+{
+ "gadgetpx": {
+  "str": "0x1271E5A3",
+  "funcs": [
+   "0xEF0D510",
+   "0xEF384E0"
+  ]
+ },
+ "gadgetpy": {
+  "str": "0x1271CEE6",
+  "funcs": [
+   "0xEF0D510",
+   "0xEF384E0"
+  ]
+ },
+ "gadgetpz": {
+  "str": "0x1271A74A",
+  "funcs": [
+   "0xEF0D510",
+   "0xEF384E0"
+  ]
+ },
+ "gadgetendpx": {
+  "str": "0x1271E5B9",
+  "funcs": [
+   "0xEF384E0"
+  ]
+ },
+ "gadgetindex": {
+  "str": "0x1271EA50",
+  "funcs": [
+   "0x93CA70"
+  ]
+ },
+ "gadgetslot": {
+  "str": "0x127241A5",
+  "funcs": [
+   "0x93CA70"
+  ]
+ },
+ "securitycamera:{}": {
+  "str": "0x12716415",
+  "funcs": [
+   "0xEEC5EB0",
+   "0xEFC95B0"
+  ]
+ },
+ "securitycamera": {
+  "str": "0x1278B24F",
+  "funcs": [
+   "0xF1964C0"
+  ]
+ },
+ "Input entity is not a spawned gadget": {
+  "str": "0x127296CE",
+  "funcs": [
+   "0xEDF4260"
+  ]
+ },
+ "Replica Drone {}": {
+  "str": "0x1271699B",
+  "funcs": [
+   "0x65630B0"
+  ]
+ },
+ "Error: Invalid explosive drone entity": {
+  "str": "0x1271B0FB",
+  "funcs": [
+   "0xEE3B8F0"
+  ]
+ },
+ "IsInDrone": {
+  "str": "0x12767F1C",
+  "funcs": [
+   "0x1A43020"
+  ]
+ },
+ "Deployable Shield": {
+  "str": "0x12773099",
+  "funcs": [
+   "0xF192DF0"
+  ]
+ },
+ "BreachCharge": {
+  "str": "0x1276D2F9",
+  "funcs": [
+   "0xEE9B5B0"
+  ]
+ },
+ "Fear mine entity is null": {
+  "str": "0x12753343",
+  "funcs": [
+   "0xEE35770"
+  ]
+ },
+ "Proximity fuze mine entity is null": {
+  "str": "0x1275335C",
+  "funcs": [
+   "0xEDC03B0"
+  ]
+ },
+ "hknpCharacterRigidBody": {
+  "str": "0x1271DA0F",
+  "funcs": [
+   "0x336F530"
+  ]
+ },
+ "hknpWorld": {
+  "str": "0x12772DC9",
+  "funcs": [
+   "0x42A6CB0"
+  ]
+ },
+ "eng::EngineLoop::KickWorldPhysicStep": {
+  "str": "0x12745F75",
+  "funcs": [
+   "0x58B140"
+  ]
+ },
+ "ownGravity": {
+  "str": "0x1271B088",
+  "funcs": [
+   "0x408D90",
+   "0x465C00"
+  ]
+ },
+ "WorldUpdate_Physics_ctx": {
+  "str": "0x1271E4D1",
+  "funcs": [
+   "0x5B29A0",
+   "0x29283E0"
+  ]
+ }
+}

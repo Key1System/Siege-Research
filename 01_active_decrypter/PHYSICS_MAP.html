@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>R6 Siege — Physics Map</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel2: #1c232d;
+    --border: #262e38;
+    --border-lite: #1e2530;
+    --fg: #e6edf3;
+    --dim: #7d8590;
+    --dim2: #a5adba;
+    --accent: #58a6ff;
+    --accent-dim: rgba(88,166,255,.12);
+    --ok: #3fb950;
+    --warn: #d29922;
+    --err: #f85149;
+    --new: #58a6ff;
+    --node-tick:   #23405d;
+    --node-world:  #2a4a3d;
+    --node-body:   #5a3f2a;
+    --node-cc:     #3f4e6b;
+    --node-skel:   #4c3d68;
+    --node-crypto: #663434;
+    --node-anchor: #4a5a2a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background: var(--bg); color: var(--fg);
+    font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+    height:100vh; overflow:hidden; }
+  code, .mono { font-family: "SFMono-Regular", "Consolas", "SF Mono", monospace; }
+
+  /* ---------- header (tabs) ---------- */
+  header {
+    height: 48px; background: var(--panel); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 16px; gap: 8px;
+  }
+  header .brand { font-weight: 600; font-size: 14px; margin-right: 16px; }
+  header .brand .dim { color: var(--dim); font-weight: 400; }
+  .tab {
+    background: transparent; color: var(--dim); border: none;
+    padding: 8px 16px; font: inherit; font-size: 13px; cursor: pointer;
+    border-radius: 6px; font-weight: 500;
+  }
+  .tab:hover { background: var(--panel2); color: var(--fg); }
+  .tab.active { background: var(--accent-dim); color: var(--accent); }
+  header .grow { flex: 1; }
+  header .meta {
+    color: var(--dim); font-size: 12px; margin-right: 8px;
+  }
+  header .meta code { color: var(--accent); }
+
+  /* ---------- views ---------- */
+  .view { display: none; height: calc(100vh - 48px); }
+  .view.active { display: grid; }
+
+  /* -------------- GRAPH VIEW -------------- */
+  #view-graph.active {
+    grid-template-columns: 240px 1fr 380px;
+  }
+  aside.nav {
+    background: var(--panel); border-right: 1px solid var(--border);
+    padding: 8px 0; overflow-y: auto;
+  }
+  aside.nav h2 {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--dim); padding: 12px 14px 4px; margin: 0; font-weight: 600;
+  }
+  aside.nav .item {
+    padding: 6px 14px 6px 14px; cursor: pointer; font-size: 12.5px;
+    color: var(--fg); display: flex; align-items: center; gap: 8px;
+    border-left: 2px solid transparent;
+  }
+  aside.nav .item:hover { background: var(--panel2); }
+  aside.nav .item.active {
+    background: var(--panel2); border-left-color: var(--accent);
+  }
+  aside.nav .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.ok  { background: var(--ok); }
+  .dot.new { background: var(--new); }
+  .dot.warn{ background: var(--warn); }
+  .dot.blk { background: var(--err); }
+
+  main.canvas-area {
+    position: relative; background: var(--bg); overflow: hidden;
+    user-select: none;
+  }
+  #canvas-wrap { position: absolute; inset: 0; overflow: hidden; }
+  #svg-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 5000px; height: 3400px; transform-origin: 0 0;
+  }
+  .zoom-controls {
+    position: absolute; bottom: 16px; right: 16px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 6px; padding: 3px; display: flex; z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  .zoom-controls button {
+    background: transparent; color: var(--fg); border: none;
+    padding: 5px 10px; cursor: pointer; border-radius: 4px;
+    font: inherit; font-size: 13px;
+  }
+  .zoom-controls button:hover { background: var(--panel2); }
+  .zoom-controls .zoom-label {
+    padding: 5px 8px; color: var(--dim); font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .legend {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(22,27,34,.9); backdrop-filter: blur(6px);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 8px 10px; z-index: 5; font-size: 11px; color: var(--dim);
+  }
+  .legend .row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+  .legend .sw {
+    width: 10px; height: 10px; border-radius: 2px;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+
+  /* detail panel (used in both tabs) */
+  aside.detail {
+    background: var(--panel); border-left: 1px solid var(--border);
+    overflow-y: auto; padding: 16px 18px;
+  }
+  aside.detail .empty {
+    color: var(--dim); font-style: italic; padding-top: 32px; text-align: center;
+  }
+  aside.detail h3 { margin: 0 0 4px; font-size: 15px; }
+  aside.detail .subtitle { color: var(--dim); font-size: 12px; margin-bottom: 12px; }
+  aside.detail section { margin: 14px 0; }
+  aside.detail section h4 {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--dim); margin: 0 0 6px; font-weight: 600;
+  }
+  aside.detail dl { display: grid; grid-template-columns: max-content 1fr;
+                    gap: 4px 12px; margin: 0; }
+  aside.detail dt { color: var(--dim); font-size: 12px; }
+  aside.detail dd { margin: 0; font-size: 12px; }
+  aside.detail code {
+    background: var(--bg); color: var(--accent);
+    padding: 1px 5px; border-radius: 3px; font-size: 11.5px;
+  }
+  aside.detail .verify {
+    background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 8px 10px; font-size: 11.5px;
+    color: var(--fg); font-family: inherit; white-space: pre-wrap;
+    line-height: 1.55;
+  }
+  aside.detail .status {
+    display: inline-block; font-size: 9.5px; padding: 2px 7px;
+    border-radius: 10px; font-weight: 700; letter-spacing: .8px;
+    text-transform: uppercase; margin-left: 6px;
+  }
+  aside.detail .status.ok   { background: rgba(63,185,80,.15);  color: var(--ok); }
+  aside.detail .status.warn { background: rgba(210,153,34,.15); color: var(--warn); }
+  aside.detail .status.new  { background: rgba(88,166,255,.15); color: var(--new); }
+  aside.detail .status.blk  { background: rgba(248,81,73,.15);  color: var(--err); }
+  aside.detail .cite {
+    font-size: 11px; color: var(--dim); font-style: italic;
+  }
+  aside.detail table.layout {
+    font-family: "Consolas", monospace; font-size: 11px;
+    border-collapse: collapse; width: 100%;
+  }
+  aside.detail table.layout th {
+    color: var(--dim); text-align: left; padding: 3px 8px 3px 0;
+    font-weight: 600; font-size: 10.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  aside.detail table.layout td {
+    padding: 3px 8px 3px 0; border-bottom: 1px solid var(--border-lite);
+    vertical-align: top;
+  }
+  aside.detail table.layout td.off { color: var(--accent); }
+  aside.detail table.layout td.note { color: var(--dim); }
+
+  /* SVG node styles */
+  .node { cursor: pointer; }
+  .node rect.body {
+    stroke: rgba(255,255,255,.08); stroke-width: 1;
+    rx: 5; ry: 5;
+  }
+  .node.selected rect.body {
+    stroke: var(--accent); stroke-width: 2;
+  }
+  .node text {
+    fill: #f0f0f0; font-family: -apple-system, sans-serif;
+    pointer-events: none; dominant-baseline: middle;
+  }
+  .node .title { font-size: 12.5px; font-weight: 600; }
+  .node .subt  { font-size: 10.5px; fill: rgba(255,255,255,.65); }
+  .node .rva   { font-family: "Consolas", monospace; font-size: 10px;
+                 fill: rgba(255,255,255,.5); }
+  .link { fill: none; stroke: #3a4657; stroke-width: 1.4; opacity: .8; }
+  .link.hi { stroke: var(--accent); stroke-width: 2.2; opacity: 1; }
+  .link-label {
+    fill: var(--dim); font-size: 10px; font-family: "Consolas", monospace;
+    pointer-events: none;
+  }
+  .group-outline {
+    fill: rgba(255,255,255,.015); stroke: rgba(255,255,255,.06);
+    stroke-width: 1; stroke-dasharray: 3 3; rx: 10; ry: 10;
+  }
+  .group-label {
+    fill: var(--dim); font-size: 10.5px; font-weight: 700;
+    letter-spacing: 1.3px; text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  /* -------------- OFFSETS/SIGS TABLE VIEW -------------- */
+  #view-table.active {
+    grid-template-columns: 1fr 400px;
+  }
+  #table-main {
+    padding: 18px 22px; overflow: auto; background: var(--bg);
+  }
+  #table-main .toolbar {
+    display: flex; gap: 10px; align-items: center; margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  #table-main .toolbar input, #table-main .toolbar select {
+    background: var(--panel); color: var(--fg);
+    border: 1px solid var(--border); border-radius: 5px;
+    padding: 6px 10px; font: inherit; font-size: 12.5px;
+  }
+  #table-main .toolbar input:focus, #table-main .toolbar select:focus {
+    outline: none; border-color: var(--accent);
+  }
+  #table-main .toolbar #q { width: 320px; }
+  #table-main .toolbar .filters { display: flex; gap: 6px; margin-left: auto; }
+  #table-main .toolbar .chip {
+    background: var(--panel); color: var(--dim); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 12px; cursor: pointer;
+    font-size: 11.5px; user-select: none;
+  }
+  #table-main .toolbar .chip.on {
+    background: var(--accent-dim); color: var(--accent); border-color: var(--accent);
+  }
+  #table-main .toolbar .count {
+    color: var(--dim); font-size: 12px;
+  }
+  #table-main table.data {
+    width: 100%; border-collapse: collapse; font-size: 12.5px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+    overflow: hidden;
+  }
+  #table-main table.data th {
+    text-align: left; padding: 10px 12px;
+    background: var(--panel2); border-bottom: 1px solid var(--border);
+    font-weight: 600; font-size: 11px; letter-spacing: .5px;
+    text-transform: uppercase; color: var(--dim); cursor: pointer;
+    white-space: nowrap; user-select: none; position: sticky; top: 0;
+  }
+  #table-main table.data th:hover { background: var(--border); color: var(--fg); }
+  #table-main table.data th::after {
+    content: ""; margin-left: 4px; opacity: .5;
+  }
+  #table-main table.data th.sort-asc::after  { content: "▲"; opacity: 1; }
+  #table-main table.data th.sort-desc::after { content: "▼"; opacity: 1; }
+  #table-main table.data td {
+    padding: 8px 12px; border-bottom: 1px solid var(--border-lite);
+    vertical-align: top;
+  }
+  #table-main table.data tr:last-child td { border-bottom: none; }
+  #table-main table.data tr {
+    cursor: pointer;
+  }
+  #table-main table.data tr:hover td { background: var(--panel2); }
+  #table-main table.data tr.selected td { background: var(--accent-dim); }
+  #table-main .kind {
+    display: inline-block; font-size: 10px; padding: 2px 7px;
+    border-radius: 3px; font-weight: 600; letter-spacing: .3px;
+    text-transform: uppercase;
+  }
+  #table-main .kind.field   { background: rgba(88,166,255,.15);  color: var(--accent); }
+  #table-main .kind.fn      { background: rgba(63,185,80,.15);   color: var(--ok); }
+  #table-main .kind.vtable  { background: rgba(163,113,247,.15); color: #a371f7; }
+  #table-main .kind.string  { background: rgba(210,153,34,.15);  color: var(--warn); }
+  #table-main .kind.tls     { background: rgba(255,123,114,.15); color: #ff7b72; }
+  #table-main .kind.sig     { background: rgba(163,163,163,.2);  color: #d0d7de; }
+  #table-main .kind.global  { background: rgba(255,166,87,.15);  color: #ffa657; }
+  #table-main .col-name { font-weight: 500; }
+  #table-main .col-off, #table-main .col-rva, #table-main .col-va {
+    font-family: "Consolas", monospace; color: var(--accent);
+  }
+  #table-main .parent {
+    color: var(--dim); font-size: 11px;
+  }
+  #table-main .copy {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--dim); padding: 2px 6px; border-radius: 3px; cursor: pointer;
+    font: inherit; font-size: 10px; margin-left: 4px; opacity: 0;
+  }
+  #table-main table.data tr:hover .copy { opacity: 1; }
+  #table-main .copy:hover { color: var(--accent); border-color: var(--accent); }
+  #table-main .copy.copied { color: var(--ok); border-color: var(--ok); opacity: 1; }
+
+  /* utility */
+  .row-status {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    margin-right: 6px; vertical-align: middle;
+  }
+  .row-status.ok   { background: var(--ok); }
+  .row-status.new  { background: var(--new); }
+  .row-status.warn { background: var(--warn); }
+  .row-status.blk  { background: var(--err); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a4657; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">R6 Siege · Physics Map <span class="dim">/ July 2026 build</span></div>
+  <button class="tab active" data-view="graph">Graph</button>
+  <button class="tab" data-view="table">Offsets &amp; Sigs</button>
+  <div class="grow"></div>
+  <span class="meta">Base <code>0x7FF6516E0000</code></span>
+  <span class="meta">MD5 <code>99e6f2...4083</code></span>
+</header>
+
+<!-- ================================================================ GRAPH -->
+<div id="view-graph" class="view active">
+  <aside class="nav" id="graph-nav"></aside>
+
+  <main class="canvas-area">
+    <div id="canvas-wrap">
+      <svg id="svg-canvas" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5"
+                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#3a4657"/>
+          </marker>
+          <marker id="arhi" viewBox="0 0 10 10" refX="8" refY="5"
+                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#58a6ff"/>
+          </marker>
+        </defs>
+        <g id="groups"></g>
+        <g id="links"></g>
+        <g id="nodes"></g>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="row"><span class="sw" style="background:#3fb950"></span> verified live</div>
+      <div class="row"><span class="sw" style="background:#58a6ff"></span> new this session</div>
+      <div class="row"><span class="sw" style="background:#d29922"></span> needs re-verify</div>
+      <div class="row"><span class="sw" style="background:#f85149"></span> blocked / T2</div>
+    </div>
+
+    <div class="zoom-controls">
+      <button id="zoom-out">−</button>
+      <span class="zoom-label" id="zoom-label">50%</span>
+      <button id="zoom-in">+</button>
+      <button id="zoom-fit">Fit</button>
+    </div>
+  </main>
+
+  <aside class="detail" id="graph-detail">
+    <div class="empty">Click any node.</div>
+  </aside>
+</div>
+
+<!-- ================================================================ TABLE -->
+<div id="view-table" class="view">
+  <div id="table-main">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search name, address, symbol, note...">
+      <select id="kind-filter">
+        <option value="">All kinds</option>
+        <option value="field">Struct field</option>
+        <option value="fn">Function</option>
+        <option value="vtable">Vtable</option>
+        <option value="tls">TLS key</option>
+        <option value="string">String anchor</option>
+        <option value="sig">Signature</option>
+        <option value="global">Global</option>
+      </select>
+      <div class="filters">
+        <span class="chip on" data-status="ok">OK</span>
+        <span class="chip on" data-status="new">NEW</span>
+        <span class="chip on" data-status="warn">WARN</span>
+        <span class="chip on" data-status="blk">BLK</span>
+      </div>
+      <span class="count" id="tbl-count"></span>
+    </div>
+
+    <table class="data" id="offset-table">
+      <thead>
+        <tr>
+          <th data-sort="name">Name</th>
+          <th data-sort="kind">Kind</th>
+          <th data-sort="parent">Parent / Class</th>
+          <th data-sort="off">Offset</th>
+          <th data-sort="rva">RVA</th>
+          <th data-sort="va">VA</th>
+          <th data-sort="note">Note</th>
+        </tr>
+      </thead>
+      <tbody id="tbl-body"></tbody>
+    </table>
+  </div>
+
+  <aside class="detail" id="table-detail">
+    <div class="empty">Click any row to see full verification path.</div>
+  </aside>
+</div>
+
+<script>
+// ============================================================================
+// PHYSICS GRAPH DATA
+// ============================================================================
+const nodes = [
+  { id:"engine_init", group:"tick", kind:"fn", x: 60, y: 90, w: 260, h: 62,
+    title:"eng_InitEngineTickDescriptors", subtitle:"sets up 15 engine stages",
+    va:"0x7FF6FC40B4E0", rva:"0x055B4E0", base:"V4", status:"ok",
+    verify:`String-anchored: label "eng::EngineLoop::KickWorldPhysicStep" at 0x7FF662A5DD82 loaded inside this function. Fresh session sees the same init pattern at 0x7FF651D81400.`,
+    refs:["V4 §6.1"],
+    links:[{to:"kick_world_physics", label:"stage 1"}] },
+
+  { id:"kick_world_physics", group:"tick", kind:"fn", x: 60, y: 200, w: 260, h: 62,
+    title:"KickWorldPhysicStep", subtitle:"stage 1 — kicks 23-stage world tick",
+    va:"0x7FF6FC7285E0", rva:"0x08785E0", base:"V4", status:"ok",
+    verify:`Called from eng_InitEngineTickDescriptors as stage 1. Label string sits next to it in the descriptor init block.`,
+    refs:["V4 §6.1"],
+    links:[{to:"world_init", label:"invokes"}] },
+
+  { id:"world_init", group:"tick", kind:"fn", x: 60, y: 310, w: 260, h: 70,
+    title:"R6_World_InitTaskDescriptors", subtitle:"installs 23 world-tick stages",
+    va:"0x7FF651D5C790", rva:"0x067C790", base:"fresh", status:"new",
+    verify:`This session:
+• find_regex "UpdatePhysicsAndBroadphase" → label 0x7FF662A7CBF6
+• xrefs to string → sub_7FF651D5C790
+• Decompiled fully — every one of 23 stages has (label, exec fn, index) written into world-tick record.
+• All 23 exec fns renamed via IDA batch (23/23 ok).`,
+    refs:["V4 §6.2","this session"],
+    links:[{to:"wld_stages", label:"sets up"}] },
+
+  { id:"wld_stages", group:"tick", kind:"cluster", x: 360, y: 90, w: 580, h: 690,
+    title:"23 World Tick Stages",
+    subtitle:"physics-relevant stages starred", status:"new",
+    verify:"Every stage's label string + execute function baked into R6_World_InitTaskDescriptors. Extracted this session.",
+    refs:["V4 §6.2 confirmed against fresh IDB"], links:[],
+    fields:[
+      {off:" 0", name:"wld_UpdateWorldComponentUpdate",         type:"0x7FF655223A20"},
+      {off:" 1", name:"wld_UpdatePlayerController",             type:"0x7FF6552B3F80"},
+      {off:" 2", name:"wld_UpdatePostSkeleton",                 type:"0x7FF655296800", note:"★ post-anim bone commit"},
+      {off:" 3", name:"wld_UpdatePausedWorldPhysics",           type:"0x7FF65526B3A0"},
+      {off:" 4", name:"wld_UpdatePausedWorldCharacters",        type:"0x7FF6552E4430"},
+      {off:" 5", name:"wld_UpdateCullingFlags",                 type:"0x7FF6552635D0"},
+      {off:" 6", name:"wld_UpdateComponentScheduling",          type:"0x7FF6552A6A70"},
+      {off:" 7", name:"wld_UIUpdatePostWorld",                  type:"0x7FF655286870"},
+      {off:" 8", name:"wldSkeletonBatched (Anvil handle dispatch)", type:"&unk_7FF655243E00", note:"★ vt[5]"},
+      {off:" 9", name:"wld_ScheduleDestructionCompound...",     type:"0x7FF655238E60"},
+      {off:"10", name:"wld_ScheduleDestructionComponent...",    type:"0x7FF655237300"},
+      {off:"11", name:"wld_ScheduleDestructionCompCleanup",     type:"0x7FF6552C84F0"},
+      {off:"12", name:"wld_ProcessSoundPhysicRequests",         type:"0x7FF6552B96B0"},
+      {off:"13", name:"wld_Pilot",                              type:"0x7FF6552A04F0"},
+      {off:"14", name:"wld_UpdatePhysicsAndBroadphase",         type:"0x7FF6552A7A30", note:"★★★ physics step"},
+      {off:"15", name:"wld_NetworkUpdatePostWorld",             type:"0x7FF655224A80"},
+      {off:"16", name:"wld_KickCharacterStoryboards_PostPhys",  type:"0x7FF65526D930"},
+      {off:"17", name:"wld_KickAnimPrePhysics",                 type:"0x7FF65523B940", note:"★ anim→skeleton"},
+      {off:"18", name:"wld_GameplayAIPrePhysic",                type:"0x7FF6552D67C0"},
+      {off:"19", name:"wld_DeferredMeshInstancingUpdate",       type:"0x7FF6552BDC30"},
+      {off:"20", name:"wld_Component_PrePhysicUpdate_MT",       type:"0x7FF655255010"},
+      {off:"21", name:"wld_Component_PostPhysicUpdate_MT",      type:"0x7FF65525C880"},
+      {off:"22", name:"wld_AIRequest_Update_Batched",           type:"0x7FF65523F900"},
+    ] },
+
+  { id:"update_physics", group:"world", kind:"fn", x: 990, y: 210, w: 300, h: 76,
+    title:"wld_UpdatePhysicsAndBroadphase", subtitle:"stage 14 · dereferences [r14+0x38]",
+    va:"0x7FF6552A7A30", rva:"0x0BC7A30", base:"fresh", status:"new",
+    verify:`Located via label "wld::WorldTasks::UpdatePhysicsAndBroadphase" at 0x7FF662A7CBF6.
+Disasm at fn start:
+    mov rcx, [r14+38h]   ; physics world ptr
+    mov dx, 8
+    call sub_7FF6560BCB80
+Second call at +0x36 with dx=4 (two substeps).
+Body of function is T2 MBA-obfuscated (stack-hashed).`,
+    refs:["this session"],
+    links:[{to:"world_tick_off38", label:"[r14+0x38]"},
+           {to:"physics_step_orch", label:"calls"}] },
+
+  { id:"world_tick_off38", group:"world", kind:"field", x: 990, y: 320, w: 300, h: 56,
+    title:"world_tick_record + 0x38", subtitle:"→ hknpWorld pointer", status:"new",
+    verify:`Direct disasm at wld_UpdatePhysicsAndBroadphase+0x28:
+    mov rcx, [r14+38h]`,
+    refs:["this session"], links:[{to:"hknp_world", label:"yields"}] },
+
+  { id:"physics_step_orch", group:"crypto", kind:"fn", x: 1370, y: 210, w: 300, h: 76,
+    title:"physics step orchestrator", subtitle:"T2-obfuscated · 1768B frame",
+    va:"0x7FF6560BCB80", rva:"0x09DCB80", base:"fresh", status:"blk",
+    verify:`sub rsp, 0x6E8 = 1768-byte stack frame.
+Reads TLS[+0x1C] and TLS[+0x9F50] (new).
+Full body uses stack-hashed MBA through qword_7FF662FC5D00 and qword_7FF662FC54D8.
+Externally undecryptable (CRYPTO_MAP §3.2). Trampoline works for internal DLL.`,
+    refs:["CRYPTO_MAP §3.2","this session"], links:[] },
+
+  { id:"hknp_world", group:"world", kind:"obj", x: 1370, y: 400, w: 300, h: 100,
+    title:"hknpWorld", subtitle:"Havok physics world singleton (4432B)",
+    status:"warn",
+    verify:`Class-name string "hknpWorld" at 0x7FF662A89EF5.
+Havok: 4432B, 3 vtables (multi-inherit). Siege overrides primary vtable (~30 vfuncs) + vtbl3 (23 vfuncs).
+★ In fresh IDB, xrefs to string not yet populated (auto-analysis still building) — offsets below from recon v3, NEEDS re-verify.`,
+    refs:["recon_v3 §Havok"],
+    fields:[
+      {off:"+0x0B78", name:"simulation_engine",         type:"hknp*Simulation", note:"ST 1632B or MT 1776B"},
+      {off:"+0x0E18", name:"per_frame_callback_list",   type:"list"},
+      {off:"+0x10B0", name:"hknpCharacterProxyManager", type:"40B (lazy)"},
+      {off:"+0x1130", name:"back_ref_physics_manager",  type:"ptr"},
+      {off:"+0x1140", name:"flag_state",                type:"dword"},
+    ],
+    links:[{to:"body_manager", label:"owns"}] },
+
+  { id:"body_manager", group:"body", kind:"obj", x: 1750, y: 400, w: 300, h: 110,
+    title:"BodyManager", subtitle:"shared singleton · reachable from body[+0x30]",
+    status:"ok",
+    verify:`V4 §3 verified live from body 0xF642370:
+  body[+0x30] → BodyManager (shared across all bodies)
+Verified via hknpBody_RegisterMassDistribution decomp.`,
+    refs:["V4 §3"],
+    fields:[
+      {off:"+0x000", name:"primary_vtable",             type:"vt_BodyMgr"},
+      {off:"+0x008", name:"secondary_vtable",           type:"multi-inherit"},
+      {off:"+0x030", name:"flags",                      type:"dword"},
+      {off:"+0x034", name:"capacity",                   type:"dword", note:"V4 sample = 0x400"},
+      {off:"+0x4E8", name:"body_table_root",            type:"★ array"},
+      {off:"+0x528", name:"occupied_slot_bitmap",       type:"★ bit=in-use"},
+      {off:"+0xE70", name:"MemberSlot_subscriber_list", type:"signals"},
+      {off:"+0x10D0",name:"body_slot_free_list",        type:"free-list head"},
+    ],
+    links:[
+      {to:"body_table", label:"+0x4E8"},
+      {to:"body_addBody", label:"vt[52]=addBody"}] },
+
+  { id:"body_table", group:"anchor", kind:"obj", x: 2110, y: 400, w: 260, h: 80,
+    title:"★ Body Table", subtitle:"the stable enumeration anchor", status:"ok",
+    verify:`Walk BodyManager+0x4E8 as an array.
+Cross-check each entry against BodyManager+0x528 bitmap:
+    if (bitmap[i>>6] & (1 << (i&63))) live();
+This is the "entity list" — one dereference from hknpWorld → BodyManager, no heap scanning.`,
+    refs:["V4 §3.2"], links:[{to:"hknp_char_body", label:"each entry"}] },
+
+  { id:"body_addBody", group:"body", kind:"fn", x: 2110, y: 500, w: 260, h: 62,
+    title:"BodyMgr::addBody", subtitle:"vtable slot 52 (+0x1A0)",
+    va:"0x7FF70B03FA10", rva:"0x0F8FA10", base:"V4", status:"warn",
+    verify:`V4 §3.3. Installs (bodyId, flags, userData) into manager tables. If bodyId < 0: alloc via free-list at +0x10D0. Then sub_7FF70B038FC0(mgr+0x4E8, id, flags, ud). Sets bit in +0x528.`,
+    refs:["V4 §3.3"], links:[] },
+
+  { id:"hknp_char_body", group:"body", kind:"obj", x: 2420, y: 400, w: 320, h: 130,
+    title:"hknpCharacterRigidBody", subtitle:"160B · one per character",
+    va:"0x7FF70BC248E0 (vt)", rva:"0x0FD748E0", base:"V4", status:"ok",
+    verify:`Class-name strings at 0x7FF662A36751 and 0x7FF662B8D290 (fresh).
+V4 verified live at body 0xF642370. Body pointers CHURN — same bodyId,
+different pointers as slots recycle. Cache bodyId, not pointer.`,
+    refs:["V4 §2.2, §2.3"],
+    fields:[
+      {off:"+0x00", name:"vtable",             type:"vt_hknpCharacterRigidBody"},
+      {off:"+0x08", name:"refcount_low",       type:"u32"},
+      {off:"+0x18", name:"hknpBodyId",         type:"{gen:32|id:32}", note:"★ stable identity"},
+      {off:"+0x30", name:"BodyManager",        type:"ptr", note:"shared"},
+      {off:"+0x40", name:"quality/damping",    type:"float"},
+      {off:"+0x58", name:"quaternion",         type:"Vec4"},
+      {off:"+0x70", name:"max_angular_velocity", type:"float 1000.0"},
+      {off:"+0x84", name:"motion_id",          type:"u32"},
+    ],
+    links:[{to:"havok_user_data", label:"reverse-map via"},
+           {to:"cc", label:"wrapped by"}] },
+
+  { id:"havok_user_data", group:"body", kind:"obj", x: 2420, y: 560, w: 320, h: 92,
+    title:"HavokUserData record", subtitle:"~2624B · body ↔ subsystem link",
+    va:"0x7FF70BAC1670 (vt)", rva:"0x0C11670", base:"V4", status:"ok",
+    verify:`V4 §4 verified live at 0xFE113630.
+Reverse-lookup: given a bodyId, walk BodyMgr's user-data table
+and match by hknpBodyId low32 at +0x98.`,
+    refs:["V4 §4"],
+    fields:[
+      {off:"+0x00", name:"vtable",              type:"vt_HavokUserData_BodyRecord"},
+      {off:"+0x10", name:"hknpBody*",           type:"★ back-ref to body"},
+      {off:"+0x18", name:"sub_vtable",          type:"vt_CharSubclass"},
+      {off:"+0x38", name:"count",               type:"u32 (=3)"},
+      {off:"+0x40", name:"slot_pairs",          type:"8× {u32,u32}"},
+      {off:"+0x98", name:"hknpBodyId_low32",    type:"u32 ★"},
+    ], links:[] },
+
+  { id:"cc", group:"cc", kind:"obj", x: 2790, y: 400, w: 340, h: 200,
+    title:"RigidBody CharacterController", subtitle:"world transform holder · ESP reads here",
+    va:"0x7FF70BCBC7D0 (vt)", rva:"0x0E0C7D0", base:"V4", status:"ok",
+    verify:`V4 §5.2 originally claimed WORLD_POS = CC+0xA0. WRONG.
+Re-verified LIVE on 4 firing-range bots at Y=20.41, Z=31.34, X in {53,55,57,59}:
+  CC 0x163E9B570 → (59.0, 20.41, 31.34)
+  CC 0x163FBABF0 → (55.0, 20.41, 31.34)
+  CC 0x16403F050 → (57.0, 20.41, 31.34)
+  CC 0x1640D7D20 → (53.0, 20.41, 31.34)
+World Vec3 at CC+0x1D0. CC+0xA0 is a quaternion identity (1,0,0,0).
+CC+0x00 body ptr CHURNS as bodies recycle. CC+0xF8 matches body+0x18.`,
+    refs:["V4 §5, §16b"],
+    fields:[
+      {off:"+0x000", name:"body_ptr",           type:"hknpCharacterRigidBody*", note:"★ churns"},
+      {off:"+0x008", name:"encrypted_salt",     type:"u64", note:"per-instance obfuscation"},
+      {off:"+0x010", name:"vtable",             type:"vt_RigidBody_CC"},
+      {off:"+0x018", name:"secondary_vtable",   type:""},
+      {off:"+0x030", name:"intra_self_ptr",     type:""},
+      {off:"+0x060", name:"move_speed_cap?",    type:"float 5.0"},
+      {off:"+0x070", name:"quaternion",         type:"Vec4", note:"identity in samples"},
+      {off:"+0x0A0", name:"quaternion",         type:"Vec4", note:"NOT world pos"},
+      {off:"+0x0F0", name:"damping",            type:"(60.0, 18.5)"},
+      {off:"+0x0F8", name:"hknpBodyId",         type:"u64 (matches body+0x18)"},
+      {off:"+0x1D0", name:"★★ WORLD_POS",       type:"Vec3", note:"LIVE-VERIFIED"},
+      {off:"+0x5C0", name:"subclass vtable",    type:""},
+      {off:"+0x630", name:"subclass vtable",    type:""},
+      {off:"+0x680", name:"subclass vtable",    type:""},
+      {off:"+0xF90/+0xFF0", name:"sub-obj ptr", type:"paired · anim?"},
+    ],
+    links:[{to:"enum_strategy", label:"enum via"},
+           {to:"skeleton_comp", label:"→ skel"}] },
+
+  { id:"enum_strategy", group:"anchor", kind:"note", x: 3180, y: 400, w: 320, h: 170,
+    title:"★ CC Enumeration Strategy", subtitle:"the stable 'entity list' derivation",
+    status:"ok",
+    verify:`Two paths:
+
+PATH A (physics-first, no scan):
+  hknpWorld → BodyManager → +0x4E8 body table
+  Walk with +0x528 bitmap as validity mask.
+
+PATH B (external, verified today):
+  find_qword(vt_RigidBody_CC) in private-RW < 256 MB
+  Filter: [cand+0x10]==vt_cc AND [body+0x00]==vt_body
+  Cache surviving arena addresses to disk.
+  Next launch: hit cached arenas first (~50-200 ms).
+
+CC address stable within a life; recycled on death/respawn.
+Flip rebuild flag when [cc+0x10] stops equaling vt_cc.`,
+    refs:["V4 §16b", "cache.h in Siege External"], links:[] },
+
+  { id:"kick_anim_prephys", group:"skel", kind:"fn", x: 990, y: 870, w: 300, h: 62,
+    title:"wld_KickAnimPrePhysics", subtitle:"stage 17 · filters entities → anim tasks",
+    va:"0x7FF65523B940", rva:"0x0B5B940", base:"fresh", status:"new",
+    verify:`Stage 17 of world tick.
+Character-entity SUBCLASS fields it uses:
+  +0x0B8  bit 0 = 'anim eligible' flag
+  +0x114  qword = sub-class ComponentList
+  +0x1D8  word — state 4..8 eligible
+  +0x214  byte = SkeletonComponent slot index`,
+    refs:["V4 §6.2, §8"],
+    links:[{to:"acquire_skel_desc", label:"downstream"}] },
+
+  { id:"acquire_skel_desc", group:"skel", kind:"fn", x: 1370, y: 870, w: 320, h: 82,
+    title:"AcquireSkeletonDescriptor",
+    subtitle:"populates entity skel desc from encrypted pool",
+    va:"0x7FF6FE391120", rva:"0x24E1120", base:"V4", status:"warn",
+    verify:`V4 §16c anchor pattern:
+  E8 ? ? ? ? F7 ? E8 00 00 00 FF FF FF 3F 0F 84 ? ? ? ?
+lands at sub_7FF6FE3FEF00+0x1B5 → calls sub_7FF6FE391120(entity, flag).
+Pool base decrypt = T2 template (RSP-hashed). Trampoline it for internal DLL.`,
+    refs:["V4 §16c", "CRYPTO_MAP §3.2"],
+    links:[{to:"skeleton_comp", label:"populates"}] },
+
+  { id:"skeleton_comp", group:"skel", kind:"obj", x: 2790, y: 870, w: 340, h: 200,
+    title:"SkeletonComponent", subtitle:"reachable at entity + 0x2A8", status:"ok",
+    verify:`V4 §16c-d verified live at entity 0x118539E70:
+  entity[+0x2A8] = 0x11853A100 = SkelComp
+  entity[+0x1A8] = 0x21 (key seed)
+  entity[+0x1B0] = 0x1184BA280 (encrypted slot handle)
+
+Enum: find_qword(vt_skel_subentry). ~50 hits per session.
+Then base = hit - 0x28. Validate:
+  [base+0x28] == vt_skel_subentry AND [base+0x18] == base`,
+    refs:["V4 §16c, §16d"],
+    fields:[
+      {off:"+0x18", name:"self_ref",              type:"★ validation"},
+      {off:"+0x28", name:"vt_skel_subentry",      type:"★ enum key"},
+      {off:"+0x38", name:"shared_owner",          type:"ptr to header"},
+      {off:"+0x50", name:"bone_slot_array",       type:"stride 0x60"},
+      {off:"+0x60", name:"shared_bone_manager",   type:"★ downstream"},
+    ],
+    links:[{to:"bone_slots", label:"+0x50"},
+           {to:"bone_mgr",   label:"+0x60"}] },
+
+  { id:"bone_slots", group:"skel", kind:"obj", x: 3180, y: 800, w: 320, h: 200,
+    title:"Bone-slot array (+0x50)",
+    subtitle:"STATIC bind-pose / prop attach — NOT animated",
+    status:"warn",
+    verify:`V4 §16d/e/f: usable, but samples confirm PROP-ATTACHMENT
+slots, not per-frame animated matrices.
+
+Per-slot filter (stride 0x60 = 96B):
+  slot[+0x1F] == 0x0F  → transform-carrying
+  slot[+0x1F] == 0x03  → ASCII name (skip)
+  slot[+0x1F] == 0x00  → empty
+
+Per valid slot:
+  +0x00..0x0F  unit quaternion
+  +0x14/+0x18  trans.y / trans.z  (x always 0)
+  +0x1C        dword flag = 1
+  +0x28        vtable (bone role)
+
+Siege External bones.h motion_score scanner would empirically confirm static.`,
+    refs:["V4 §16d, §16e, §16f", "Siege External bones.h"], links:[] },
+
+  { id:"bone_mgr", group:"skel", kind:"obj", x: 3180, y: 1020, w: 320, h: 190,
+    title:"★★ Bone Manager (SkelComp+0x60)",
+    subtitle:"where real animated bones likely live",
+    status:"blk",
+    verify:`V4 §16e — UNRESOLVED.
+Sample bone-mgr address: 0x11C1913B8.
+Stride 0x30 array of ~10+ per-bone-role slots.
+
+Per-slot (48B):
+  +0x00  vtable (grouped: head/torso, arms, legs)
+  +0x08  float ~2.13 (weight?)
+  +0x0C  encrypted qword (T7-style)
+  +0x10  shared seed 7B 17 44 86 30 FA 1D XX
+  +0x18  8-byte encrypted state (per-instance)
+
+Vtable groups observed:
+  0x7FF6E57DA550 × 3 (head/torso?)
+  0x7FF6E5741E40 × 2
+  0x7FF6E56F8770 × 5 (limbs?)
+
+Final decrypt is T7 template. Trampoline via skel_probe.h is
+the internal attack path.`,
+    refs:["V4 §16e"], links:[] },
+
+  { id:"t2_mba", group:"crypto", kind:"note", x: 60, y: 500, w: 260, h: 100,
+    title:"T2 — Stack-hashed MBA",
+    subtitle:"~600 sites · externally undecryptable",
+    status:"blk",
+    verify:`CRYPTO_MAP §3.2. Same shape as T1 but K1/K2 from hash of runtime rsp+offset. Tables in fresh IDB:
+  qword_7FF662FC5D00 (was qword_7FF70C5A0E98)
+  qword_7FF662FC54D8 (was qword_7FF70C5A0EE8)
+Cannot invert analytically. Trampoline works.`,
+    refs:["CRYPTO_MAP §3.2"], links:[] },
+];
+
+// Groups
+const groups = [
+  { id:"g_tick",   title:"Engine + World Tick",           x:  30, y:  50, w: 930, h: 750 },
+  { id:"g_world",  title:"Physics World Entry",           x: 970, y: 130, w: 720, h: 400 },
+  { id:"g_body",   title:"Body · BodyManager · UserData", x: 1710,y: 320, w: 1050, h: 380 },
+  { id:"g_cc",     title:"CharacterController + Enum",    x: 2770,y: 320, w: 750,  h: 300 },
+  { id:"g_skel",   title:"Skeleton + Bones",              x: 970, y: 800, w: 2540, h: 470 },
+  { id:"g_crypto", title:"Crypto",                        x:  30, y: 810, w: 930,  h: 220 },
+];
+
+// ============================================================================
+// TAB SWITCHER
+// ============================================================================
+document.querySelectorAll(".tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("view-" + btn.dataset.view).classList.add("active");
+  });
+});
+
+// ============================================================================
+// GRAPH VIEW
+// ============================================================================
+const nodesG   = document.getElementById("nodes");
+const linksG   = document.getElementById("links");
+const groupsG  = document.getElementById("groups");
+const svg      = document.getElementById("svg-canvas");
+const graphNav = document.getElementById("graph-nav");
+
+const groupColors = {
+  tick:"var(--node-tick)", world:"var(--node-world)", body:"var(--node-body)",
+  cc:"var(--node-cc)", skel:"var(--node-skel)", crypto:"var(--node-crypto)",
+  anchor:"var(--node-anchor)",
+};
+
+for (const g of groups) {
+  const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  r.setAttribute("class","group-outline");
+  r.setAttribute("x",g.x); r.setAttribute("y",g.y);
+  r.setAttribute("width",g.w); r.setAttribute("height",g.h);
+  groupsG.appendChild(r);
+  const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+  t.setAttribute("class","group-label");
+  t.setAttribute("x", g.x+12); t.setAttribute("y", g.y+20);
+  t.textContent = g.title;
+  groupsG.appendChild(t);
+}
+
+const byId = new Map();
+for (const n of nodes) byId.set(n.id, n);
+
+for (const n of nodes) {
+  const grp = document.createElementNS("http://www.w3.org/2000/svg","g");
+  grp.setAttribute("class","node");
+  grp.setAttribute("data-id", n.id);
+  grp.setAttribute("transform", `translate(${n.x},${n.y})`);
+
+  const r = document.createElementNS("http://www.w3.org/2000/svg","rect");
+  r.setAttribute("class","body");
+  r.setAttribute("width", n.w); r.setAttribute("height", n.h);
+  r.setAttribute("fill", groupColors[n.group] || "#333");
+  grp.appendChild(r);
+
+  const title = document.createElementNS("http://www.w3.org/2000/svg","text");
+  title.setAttribute("class","title");
+  title.setAttribute("x", 12); title.setAttribute("y", 20);
+  title.textContent = n.title;
+  grp.appendChild(title);
+
+  if (n.subtitle) {
+    const st = document.createElementNS("http://www.w3.org/2000/svg","text");
+    st.setAttribute("class","subt");
+    st.setAttribute("x",12); st.setAttribute("y", 38);
+    st.textContent = n.subtitle;
+    grp.appendChild(st);
+  }
+
+  // Status dot in corner (subtle)
+  if (n.status) {
+    const dot = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    dot.setAttribute("cx", n.w - 12);
+    dot.setAttribute("cy", 12);
+    dot.setAttribute("r", 4);
+    const c = { ok:"#3fb950", warn:"#d29922", new:"#58a6ff", blk:"#f85149" }[n.status];
+    dot.setAttribute("fill", c);
+    grp.appendChild(dot);
+  }
+
+  if ((n.va || n.rva) && n.kind !== "cluster") {
+    const txt = document.createElementNS("http://www.w3.org/2000/svg","text");
+    txt.setAttribute("class","rva");
+    txt.setAttribute("x", 12);
+    txt.setAttribute("y", n.h - 10);
+    let s = "";
+    if (n.rva) s += n.rva;
+    if (n.va && n.rva) s += "  ·  ";
+    if (n.va) s += n.va.replace(/\s*\(.*\)/,"");
+    txt.textContent = s;
+    grp.appendChild(txt);
+  }
+
+  if (n.kind === "cluster" && n.fields) {
+    let y = 62;
+    for (const f of n.fields) {
+      const row = document.createElementNS("http://www.w3.org/2000/svg","text");
+      row.setAttribute("x", 14);
+      row.setAttribute("y", y);
+      row.setAttribute("font-size","11");
+      row.setAttribute("font-family","Consolas, monospace");
+      row.setAttribute("fill", f.note ? "#ffce70" : "rgba(255,255,255,.82)");
+      row.textContent = `[${f.off}] ${f.name}` + (f.note ? "  ← " + f.note : "");
+      grp.appendChild(row);
+      y += 14;
+    }
+  }
+
+  grp.addEventListener("click", (e) => { e.stopPropagation(); selectGraph(n.id); });
+  nodesG.appendChild(grp);
+}
+
+function pathBetween(a, b) {
+  const x1 = a.x + a.w, y1 = a.y + a.h/2;
+  const x2 = b.x,       y2 = b.y + b.h/2;
+  const dx = Math.max(40, Math.abs(x2 - x1)/2);
+  return `M ${x1} ${y1} C ${x1+dx} ${y1}, ${x2-dx} ${y2}, ${x2} ${y2}`;
+}
+for (const n of nodes) {
+  if (!n.links) continue;
+  for (const l of n.links) {
+    const tgt = byId.get(l.to);
+    if (!tgt) continue;
+    const p = document.createElementNS("http://www.w3.org/2000/svg","path");
+    p.setAttribute("class","link");
+    p.setAttribute("d", pathBetween(n, tgt));
+    p.setAttribute("marker-end","url(#ar)");
+    p.setAttribute("data-from", n.id);
+    p.setAttribute("data-to", l.to);
+    linksG.appendChild(p);
+    if (l.label) {
+      const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("class","link-label");
+      const mx = (n.x + n.w + tgt.x) / 2;
+      const my = (n.y + n.h/2 + tgt.y + tgt.h/2) / 2 - 5;
+      t.setAttribute("x", mx); t.setAttribute("y", my);
+      t.setAttribute("text-anchor","middle");
+      t.textContent = l.label;
+      linksG.appendChild(t);
+    }
+  }
+}
+
+// Graph nav (compact)
+const groupOrder = ["tick","world","body","cc","skel","anchor","crypto"];
+const groupTitles = {
+  tick:"Tick", world:"World", body:"Body/Mgr",
+  cc:"CharCtrl", skel:"Skeleton", crypto:"Crypto",
+  anchor:"Anchors",
+};
+for (const g of groupOrder) {
+  const items = nodes.filter(n => n.group === g);
+  if (!items.length) continue;
+  const h = document.createElement("h2");
+  h.textContent = groupTitles[g];
+  graphNav.appendChild(h);
+  for (const n of items) {
+    const it = document.createElement("div");
+    it.className = "item"; it.dataset.id = n.id;
+    const d = document.createElement("span");
+    d.className = "dot " + (n.status || "");
+    it.appendChild(d);
+    it.appendChild(document.createTextNode(n.title));
+    it.addEventListener("click", () => selectGraph(n.id, true));
+    graphNav.appendChild(it);
+  }
+}
+
+let graphSelected = null;
+function selectGraph(id, pan) {
+  graphSelected = id;
+  document.querySelectorAll(".node").forEach(el => el.classList.remove("selected"));
+  document.querySelectorAll("#graph-nav .item").forEach(el => el.classList.remove("active"));
+  const sv = document.querySelector(`.node[data-id="${id}"]`);
+  if (sv) sv.classList.add("selected");
+  const ni = document.querySelector(`#graph-nav .item[data-id="${id}"]`);
+  if (ni) ni.classList.add("active");
+  document.querySelectorAll(".link").forEach(l => {
+    if (l.dataset.from === id || l.dataset.to === id) l.classList.add("hi");
+    else l.classList.remove("hi");
+  });
+  renderDetail(byId.get(id), "graph-detail");
+  if (pan) {
+    const n = byId.get(id);
+    const wrap = document.getElementById("canvas-wrap");
+    const rect = wrap.getBoundingClientRect();
+    tx = rect.width/2 - (n.x + n.w/2) * scale;
+    ty = rect.height/2 - (n.y + n.h/2) * scale;
+    applyTransform();
+  }
+}
+
+function renderDetail(n, targetId) {
+  const el = document.getElementById(targetId);
+  if (!n) { el.innerHTML = `<div class="empty">Not found.</div>`; return; }
+  let html = `<h3>${n.title}<span class="status ${n.status}">${(n.status||"").toUpperCase()}</span></h3>
+              <div class="subtitle">${n.subtitle || ""}</div>`;
+  if (n.va || n.rva || n.base) {
+    html += `<section><h4>Address</h4><dl>`;
+    if (n.rva)  html += `<dt>RVA</dt><dd><code>${n.rva}</code></dd>`;
+    if (n.va)   html += `<dt>VA</dt><dd><code>${n.va}</code></dd>`;
+    if (n.base) html += `<dt>Base</dt><dd>${n.base}</dd>`;
+    html += `</dl></section>`;
+  }
+  if (n.verify) {
+    html += `<section><h4>Verification</h4><div class="verify">${n.verify}</div></section>`;
+  }
+  if (n.fields && n.kind !== "cluster") {
+    html += `<section><h4>Layout</h4><table class="layout">
+      <tr><th>off</th><th>name</th><th>type / note</th></tr>`;
+    for (const f of n.fields) {
+      html += `<tr>
+        <td class="off">${f.off}</td>
+        <td>${f.name}</td>
+        <td class="note">${f.type || ""}${f.note ? " · " + f.note : ""}</td>
+      </tr>`;
+    }
+    html += `</table></section>`;
+  }
+  if (n.links && n.links.length) {
+    html += `<section><h4>Links</h4><ul style="padding-left:16px;margin:0;">`;
+    for (const l of n.links) {
+      const tgt = byId.get(l.to);
+      html += `<li style="margin:3px 0;">
+        <a href="#" data-goto="${l.to}" style="color:var(--accent);text-decoration:none;">
+        ${tgt ? tgt.title : l.to}</a>
+        <span class="cite"> · ${l.label || ""}</span></li>`;
+    }
+    html += `</ul></section>`;
+  }
+  if (n.refs && n.refs.length) {
+    html += `<section><h4>Sources</h4><div class="cite">${n.refs.join(" · ")}</div></section>`;
+  }
+  el.innerHTML = html;
+  el.querySelectorAll("a[data-goto]").forEach(a => {
+    a.addEventListener("click", e => { e.preventDefault(); selectGraph(a.dataset.goto, true); });
+  });
+}
+
+// pan/zoom
+let scale = 0.5, tx = 30, ty = 30;
+const wrap = document.getElementById("canvas-wrap");
+function applyTransform() {
+  svg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  document.getElementById("zoom-label").textContent = Math.round(scale*100) + "%";
+}
+applyTransform();
+
+let dragging = false, dragStart = null;
+wrap.addEventListener("mousedown", (e) => {
+  if (e.target.closest(".node") || e.target.closest(".zoom-controls") ||
+      e.target.closest(".legend")) return;
+  dragging = true; dragStart = { x: e.clientX - tx, y: e.clientY - ty };
+  wrap.style.cursor = "grabbing";
+});
+window.addEventListener("mousemove", (e) => {
+  if (!dragging) return;
+  tx = e.clientX - dragStart.x; ty = e.clientY - dragStart.y; applyTransform();
+});
+window.addEventListener("mouseup", () => { dragging = false; wrap.style.cursor=""; });
+wrap.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const r = wrap.getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  const wx = (mx - tx)/scale, wy = (my - ty)/scale;
+  const f = e.deltaY < 0 ? 1.15 : 0.87;
+  scale = Math.max(0.15, Math.min(3, scale * f));
+  tx = mx - wx * scale; ty = my - wy * scale;
+  applyTransform();
+}, { passive: false });
+document.getElementById("zoom-in").addEventListener("click", () =>
+  { scale = Math.min(3, scale*1.2); applyTransform(); });
+document.getElementById("zoom-out").addEventListener("click", () =>
+  { scale = Math.max(0.15, scale*0.83); applyTransform(); });
+document.getElementById("zoom-fit").addEventListener("click", () => {
+  const r = wrap.getBoundingClientRect();
+  scale = Math.min(r.width / 3520, r.height / 1300) * 0.95;
+  tx = 30; ty = 30; applyTransform();
+});
+
+selectGraph("cc"); // auto-highlight the crown jewel
+
+// ============================================================================
+// OFFSETS/SIGS TABLE
+// ============================================================================
+// Flat entries derived from `nodes` — every field, function, vtable, and note.
+const entries = [];
+
+for (const n of nodes) {
+  if (n.kind === "cluster") {
+    for (const f of n.fields) {
+      entries.push({
+        name: f.name, kind: "fn", parent: n.title, off: "stage " + f.off.trim(),
+        rva: "", va: f.type, note: f.note || "",
+        status: n.status, sourceId: n.id,
+      });
+    }
+    continue;
+  }
+
+  // Node itself as an entry
+  entries.push({
+    name: n.title,
+    kind: n.kind === "note" ? "sig" : n.kind === "obj" ? "vtable" :
+          n.kind === "field" ? "field" : n.kind,
+    parent: "",
+    off: "",
+    rva: n.rva || "",
+    va: n.va || "",
+    note: n.subtitle || "",
+    status: n.status,
+    sourceId: n.id,
+  });
+
+  // Its struct fields
+  if (n.fields) {
+    for (const f of n.fields) {
+      entries.push({
+        name: f.name, kind: "field", parent: n.title, off: f.off,
+        rva: "", va: (f.type && f.type.match(/^0x[0-9A-F]+$/i)) ? f.type : "",
+        note: (f.type && !(f.type.match(/^0x[0-9A-F]+$/i)) ? f.type + " " : "") + (f.note || ""),
+        status: n.status, sourceId: n.id,
+      });
+    }
+  }
+}
+
+// TLS keys (curated)
+const tlsKeys = [
+  {off:"+0x001C", name:"thread_init_flag",       note:"byte = 1 (all threads have this)"},
+  {off:"+0x09B8", name:"in_match_mode",          note:"dword"},
+  {off:"+0x3A50", name:"HealthState rotate",     note:"byte — used by T5 decrypt"},
+  {off:"+0x3C80", name:"HealthState XOR key",    note:"u64 — used by T5 decrypt"},
+  {off:"+0x6C90", name:"Anvil task queue head",  note:"u64"},
+  {off:"+0x7338", name:"NEW: physics-side key",  note:"u64 — read by physics step orchestrator", status:"new"},
+  {off:"+0x8DE0", name:"entity handle decrypt",  note:"u64 — RigidBodyComponent"},
+  {off:"+0x9D08", name:"SkelComp XOR key A",     note:"u64 byte-packed"},
+  {off:"+0x9D40", name:"SkelComp XOR key B",     note:"u64"},
+  {off:"+0x9D68", name:"SkelComp ROL subkey",    note:"u64"},
+  {off:"+0x9F50", name:"NEW: physics-step key",  note:"u64 — read at fn entry", status:"new"},
+];
+for (const t of tlsKeys) {
+  entries.push({
+    name: t.name, kind: "tls", parent: "TLS block",
+    off: t.off, rva: "", va: "",
+    note: t.note, status: t.status || "ok",
+    sourceId: "tls",
+  });
+}
+
+// String anchors
+const stringAnchors = [
+  {va:"0x7FF662A5DD82", name:"eng::EngineLoop::KickWorldPhysicStep",
+   note:"used to locate eng_InitEngineTickDescriptors"},
+  {va:"0x7FF662A7CBF6", name:"wld::WorldTasks::UpdatePhysicsAndBroadphase",
+   note:"used to locate R6_World_InitTaskDescriptors (this session)"},
+  {va:"0x7FF662A89EF5", name:"hknpWorld", note:"class name string"},
+  {va:"0x7FF662A36751", name:"hknpCharacterRigidBody", note:"class name string"},
+  {va:"0x7FF662B8D290", name:"hknpCharacterRigidBody", note:"duplicate string in .rdata"},
+  {va:"0x7FF662B8D240", name:"hknpBody", note:"class name string"},
+  {va:"0x7FF662ba4a10", name:"hkSkeleton", note:"class name string"},
+  {va:"0x7FF662ba9218", name:"hknpPhysicsSystem", note:"class name string"},
+  {va:"0x7FF662bad028", name:"hknpWorld::s_writeApiCommandDepth",
+   note:"static counter — xrefs land in hknpWorld methods"},
+];
+for (const s of stringAnchors) {
+  entries.push({
+    name: s.name, kind: "string", parent: ".rdata",
+    off: "", rva: "0x" + (BigInt(s.va) - 0x7FF6516E0000n).toString(16).toUpperCase(),
+    va: s.va, note: s.note, status: "new", sourceId: "strings",
+  });
+}
+
+// Signatures (byte patterns known to be stable)
+const sigs = [
+  {name:"AcquireSkeletonDescriptor anchor",
+   pattern:"E8 ? ? ? ? F7 ? E8 00 00 00 FF FF FF 3F 0F 84 ? ? ? ?",
+   note:"lands inside sub_7FF6FE3FEF00 at +0x1B5 (V4) — calls AcquireSkeletonDescriptor"},
+  {name:"BodyManager::addBody (vtable slot 52)",
+   pattern:"n/a (vtable-relative, offset +0x1A0)",
+   note:"resolve via vt_BodyMgr[+0x1A0]"},
+  {name:"CC world-position pattern",
+   pattern:"n/a (direct RVA)",
+   note:"CC + 0x1D0 = Vec3 world position (LIVE-VERIFIED 4 bots)"},
+];
+for (const s of sigs) {
+  entries.push({
+    name: s.name, kind: "sig", parent: "", off: "", rva: "",
+    va: s.pattern, note: s.note, status: "warn", sourceId: "sigs",
+  });
+}
+
+// ---- table rendering ----
+const tbody = document.getElementById("tbl-body");
+const countEl = document.getElementById("tbl-count");
+const q = document.getElementById("q");
+const kindFilter = document.getElementById("kind-filter");
+const chips = document.querySelectorAll("#table-main .toolbar .chip");
+
+let sortKey = "name", sortDir = 1;
+const activeStatus = new Set(["ok","new","warn","blk"]);
+
+function statusRank(s) { return { ok:0, new:1, warn:2, blk:3 }[s || "ok"] ?? 4; }
+function cmp(a, b, key) {
+  let av = a[key] || "", bv = b[key] || "";
+  if (key === "status") return statusRank(a.status) - statusRank(b.status);
+  if (key === "off") {
+    const na = parseInt(av.replace(/[^0-9a-fA-Fx]/g,""), 16);
+    const nb = parseInt(bv.replace(/[^0-9a-fA-Fx]/g,""), 16);
+    if (!isNaN(na) && !isNaN(nb)) return na - nb;
+  }
+  if (key === "rva" || key === "va") {
+    const na = parseInt(av.replace(/[^0-9a-fA-F]/g,""), 16);
+    const nb = parseInt(bv.replace(/[^0-9a-fA-F]/g,""), 16);
+    if (!isNaN(na) && !isNaN(nb)) return na - nb;
+  }
+  return String(av).localeCompare(String(bv));
+}
+
+function copyText(txt, btn) {
+  navigator.clipboard.writeText(txt).then(() => {
+    btn.classList.add("copied");
+    const orig = btn.textContent; btn.textContent = "✓";
+    setTimeout(() => { btn.classList.remove("copied"); btn.textContent = orig; }, 900);
+  });
+}
+
+let tableSelected = null;
+
+function renderTable() {
+  const term = q.value.trim().toLowerCase();
+  const kind = kindFilter.value;
+  const filtered = entries.filter(e => {
+    if (!activeStatus.has(e.status || "ok")) return false;
+    if (kind && e.kind !== kind) return false;
+    if (!term) return true;
+    const hay = (e.name+" "+e.parent+" "+e.off+" "+e.rva+" "+e.va+" "+e.note).toLowerCase();
+    return hay.includes(term);
+  });
+
+  filtered.sort((a, b) => sortDir * cmp(a, b, sortKey));
+
+  countEl.textContent = filtered.length + " / " + entries.length + " rows";
+
+  tbody.innerHTML = "";
+  const frag = document.createDocumentFragment();
+  for (const e of filtered) {
+    const tr = document.createElement("tr");
+    tr.dataset.name = e.name;
+    tr.dataset.sourceId = e.sourceId;
+
+    // name column with status dot
+    const tdName = document.createElement("td");
+    tdName.className = "col-name";
+    tdName.innerHTML = `<span class="row-status ${e.status || "ok"}"></span>${e.name}`;
+    tr.appendChild(tdName);
+
+    // kind chip
+    const tdKind = document.createElement("td");
+    tdKind.innerHTML = `<span class="kind ${e.kind}">${e.kind}</span>`;
+    tr.appendChild(tdKind);
+
+    // parent
+    const tdParent = document.createElement("td");
+    tdParent.className = "parent";
+    tdParent.textContent = e.parent || "";
+    tr.appendChild(tdParent);
+
+    // off
+    const tdOff = document.createElement("td");
+    tdOff.className = "col-off";
+    if (e.off) {
+      tdOff.innerHTML = `<span>${e.off}</span>
+        <button class="copy" data-val="${e.off}">copy</button>`;
+    }
+    tr.appendChild(tdOff);
+
+    // rva
+    const tdRva = document.createElement("td");
+    tdRva.className = "col-rva";
+    if (e.rva) {
+      tdRva.innerHTML = `<span>${e.rva}</span>
+        <button class="copy" data-val="${e.rva}">copy</button>`;
+    }
+    tr.appendChild(tdRva);
+
+    // va
+    const tdVa = document.createElement("td");
+    tdVa.className = "col-va";
+    if (e.va) {
+      tdVa.innerHTML = `<span>${e.va}</span>
+        <button class="copy" data-val="${e.va}">copy</button>`;
+    }
+    tr.appendChild(tdVa);
+
+    // note
+    const tdNote = document.createElement("td");
+    tdNote.style.color = "var(--dim2)";
+    tdNote.textContent = e.note || "";
+    tr.appendChild(tdNote);
+
+    tr.addEventListener("click", (ev) => {
+      if (ev.target.classList.contains("copy")) {
+        copyText(ev.target.dataset.val, ev.target);
+        ev.stopPropagation();
+        return;
+      }
+      document.querySelectorAll("#tbl-body tr").forEach(r => r.classList.remove("selected"));
+      tr.classList.add("selected");
+      tableSelected = e;
+      // Show source node in the detail panel
+      if (e.sourceId && byId.has(e.sourceId)) {
+        renderDetail(byId.get(e.sourceId), "table-detail");
+      } else {
+        const el = document.getElementById("table-detail");
+        let html = `<h3>${e.name}<span class="status ${e.status||"ok"}">${(e.status||"ok").toUpperCase()}</span></h3>
+                    <div class="subtitle">${e.parent || ""}</div>`;
+        html += `<section><h4>Address</h4><dl>`;
+        if (e.off) html += `<dt>Offset</dt><dd><code>${e.off}</code></dd>`;
+        if (e.rva) html += `<dt>RVA</dt><dd><code>${e.rva}</code></dd>`;
+        if (e.va)  html += `<dt>VA / value</dt><dd><code>${e.va}</code></dd>`;
+        html += `</dl></section>`;
+        if (e.note) html += `<section><h4>Note</h4><div class="verify">${e.note}</div></section>`;
+        el.innerHTML = html;
+      }
+    });
+
+    frag.appendChild(tr);
+  }
+  tbody.appendChild(frag);
+
+  // sort indicators
+  document.querySelectorAll("#offset-table th").forEach(th => {
+    th.classList.remove("sort-asc","sort-desc");
+    if (th.dataset.sort === sortKey) {
+      th.classList.add(sortDir === 1 ? "sort-asc" : "sort-desc");
+    }
+  });
+}
+
+// header sort click
+document.querySelectorAll("#offset-table th").forEach(th => {
+  th.addEventListener("click", () => {
+    const k = th.dataset.sort;
+    if (sortKey === k) sortDir = -sortDir;
+    else { sortKey = k; sortDir = 1; }
+    renderTable();
+  });
+});
+
+// filter chips
+chips.forEach(c => {
+  c.addEventListener("click", () => {
+    const s = c.dataset.status;
+    if (activeStatus.has(s)) { activeStatus.delete(s); c.classList.remove("on"); }
+    else { activeStatus.add(s); c.classList.add("on"); }
+    renderTable();
+  });
+});
+
+q.addEventListener("input", renderTable);
+kindFilter.addEventListener("change", renderTable);
+renderTable();
+</script>
+</body>
+</html>

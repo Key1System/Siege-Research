@@ -1,0 +1,95 @@
+{
+ "eng::EngineLoop::KickWorldPhysicStep": {
+  "str": "0x12E9CDAB",
+  "funcs": [
+   "0x622970"
+  ]
+ },
+ "WorldUpdate_PrePhysics_ctx": {
+  "str": "0x12E75227",
+  "funcs": [
+   "0x61D7B0",
+   "0x2A994F0"
+  ]
+ },
+ "WorldUpdate_Physics_ctx": {
+  "str": "0x12E75242",
+  "funcs": [
+   "0x61D7B0",
+   "0x2A994F0"
+  ]
+ },
+ "WorldUpdate_PostPhysics_ctx": {
+  "str": "0x12E7520B",
+  "funcs": [
+   "0x61D7B0",
+   "0x2A994F0"
+  ]
+ },
+ "::Physic::physics_solve_task": {
+  "str": "0x12EACE7A",
+  "funcs": [
+   "0x43927F0"
+  ]
+ },
+ "::Physic::physics_collide_task": {
+  "str": "0x12EACE97",
+  "funcs": [
+   "0x43927F0"
+  ]
+ },
+ "::Physic::physics_particles_task": {
+  "str": "0x12EACE25",
+  "funcs": [
+   "0x43927F0"
+  ]
+ },
+ "wld::WorldTasks::UpdatePhysicsAndBroadphase": {
+  "str": "0x12EBC608",
+  "funcs": [
+   "0x641ED0"
+  ]
+ },
+ "wld::WorldTasks::KickAnimPrePhysics": {
+  "str": "0x12E8E521",
+  "funcs": [
+   "0x641ED0"
+  ]
+ },
+ "hknpWorld": {
+  "str": "0x12EC9D30",
+  "funcs": [
+   "0x430B220"
+  ]
+ },
+ "hknpCharacterRigidBody": {
+  "str": "0x12E74780",
+  "funcs": [
+   "0x33D5A20"
+  ]
+ },
+ "hknpCharacterProxyManager": {
+  "str": "0x12FE47F8",
+  "funcs": [
+   "0x11EC8A68"
+  ]
+ },
+ "::Physic::HavokFXGraphicSync": {
+  "str": "0x12ED72F3",
+  "funcs": [
+   "0x2AA8060"
+  ]
+ },
+ "HavokAllocator": {
+  "str": "0x12E95400",
+  "funcs": [
+   "0x44048B0"
+  ]
+ },
+ "Havok Async": {
+  "str": "0x13008880",
+  "funcs": [
+   "0x120AA160"
+  ]
+ }
+}

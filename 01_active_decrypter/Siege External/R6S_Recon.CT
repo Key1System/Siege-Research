@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"=== R6S Recon (read-only) ==="</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"ViewData base (updated by script)"</Description>
+      <VariableType>8 Bytes</VariableType>
+      <Address>0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Camera position (X)"</Description>
+      <VariableType>Float</VariableType>
+      <Address>[R6S_VIEW_DATA]+190</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Camera position (Y)"</Description>
+      <VariableType>Float</VariableType>
+      <Address>[R6S_VIEW_DATA]+194</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Camera position (Z)"</Description>
+      <VariableType>Float</VariableType>
+      <Address>[R6S_VIEW_DATA]+198</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"View-Projection matrix row 0"</Description>
+      <VariableType>Float</VariableType>
+      <Address>[R6S_VIEW_DATA]+250</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>R6S_VIEW_DATA</Name>
+      <Address>0</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>-- =============================================================
+-- R6S Recon — Cheat Engine Lua mirror of Siege External
+-- Read-only. Attaches, finds ViewData, enumerates bodies, resolves CCs.
+-- =============================================================
+
+local TARGET_EXE   = "RainbowSix.exe"
+local VT_BODY      = 0x7FF61FC748E0
+
+local VD_SIG = "A4 70 7D BF 00 00 00 00 00 00 00 00 00 00 A0 40 " ..
+               "00 00 A0 C0 00 00 00 00 00 00 00 00 CD CC 4C 3F " ..
+               "00 00 00 3F 00 00 80 3E"
+local VD_SIG_OFF, VD_CAM_POS_OFF, VD_VIEW_PROJ_OFF = 0x2A4, 0x190, 0x250
+
+local BODY_VTABLE = 0x00
+local CC_VTABLE, CC_VTABLE2 = 0x10, 0x18
+local CC_WORLD_POS, CC_DAMPING = 0xA0, 0xF0
+
+local SCREEN_W, SCREEN_H, MAX_DIST = 1920, 1080, 500.0
+
+local function log(fmt, ...) print(string.format("[R6S] " .. fmt, ...)) end
+
+local function scan_pattern(pattern, limit)
+    limit = limit or 8
+    local scan = createMemScan()
+    scan.OnlyOneResult = false
+    scan.firstScan(soExactValue, vtByteArray, nil, pattern, "",
+        0, 0x7FFFFFFFFFFF, "", fsmNotAligned, "1", true, true, false, false)
+    scan.waitTillDone()
+    local fl = createFoundList(scan); fl.initialize()
+    local hits = {}
+    for i = 0, math.min(limit, fl.Count) - 1 do
+        local a = tonumber("0x" .. fl.Address[i])
+        if a then table.insert(hits, a) end
+    end
+    fl.destroy(); scan.destroy()
+    return hits
+end
+
+local function scan_qword(target, limit, lo, hi)
+    limit = limit or 64
+    lo, hi = lo or 0x10000, hi or 0x7FFFFFFFFFFF
+    local scan = createMemScan()
+    scan.OnlyOneResult = false
+    scan.firstScan(soExactValue, vtQword, nil, string.format("%d", target), "",
+        lo, hi, "", fsmNotAligned, "1", true, true, false, false)
+    scan.waitTillDone()
+    local fl = createFoundList(scan); fl.initialize()
+    local hits = {}
+    for i = 0, math.min(limit, fl.Count) - 1 do
+        local a = tonumber("0x" .. fl.Address[i])
+        if a then table.insert(hits, a) end
+    end
+    fl.destroy(); scan.destroy()
+    return hits
+end
+
+local function readVec3(a) return { x=readFloat(a) or 0, y=readFloat(a+4) or 0, z=readFloat(a+8) or 0 } end
+local function readMat4(a) local m={} for i=0,15 do m[i]=readFloat(a+i*4) or 0 end return m end
+local function dist3(a,b) local dx,dy,dz=a.x-b.x,a.y-b.y,a.z-b.z return math.sqrt(dx*dx+dy*dy+dz*dz) end
+
+local function w2s(m, world)
+    local cx = world.x*m[0]+world.y*m[4]+world.z*m[8]+m[12]
+    local cy = world.x*m[1]+world.y*m[5]+world.z*m[9]+m[13]
+    local cw = world.x*m[3]+world.y*m[7]+world.z*m[11]+m[15]
+    if cw < 0.001 then return nil end
+    return { x=SCREEN_W*0.5+(cx/cw)*SCREEN_W*0.5, y=SCREEN_H*0.5-(cy/cw)*SCREEN_H*0.5 }
+end
+
+local function find_view_data()
+    log("scanning for ViewData signature ...")
+    local hits = scan_pattern(VD_SIG, 4)
+    log("  %d sig hits", #hits)
+    for _, sig in ipairs(hits) do
+        local vd = sig - VD_SIG_OFF
+        local m = readMat4(vd + VD_VIEW_PROJ_OFF)
+        if m[15] == m[15] and math.abs(m[15]) < 1e9 then return vd end
+    end
+    return nil
+end
+
+local function resolve_cc(body)
+    local lo = math.max(0x10000, body - 0x4000000)
+    local hi = body + 0x4000000
+    for _, cand in ipairs(scan_qword(body, 16, lo, hi)) do
+        local vt1 = readQword(cand + CC_VTABLE)
+        local vt2 = readQword(cand + CC_VTABLE2)
+        if vt1 and vt2 and vt1 >= 0x7FF000000000 and vt2 >= 0x7FF000000000 then
+            local d = readFloat(cand + CC_DAMPING)
+            if d and d == d then return cand end
+        end
+    end
+    return nil
+end
+
+function R6S_Recon_Run()
+    print("=== R6S Recon ===")
+    local list = getProcessList()
+    local ok = false
+    for pid_str, name in pairs(list) do
+        if name:lower():find(TARGET_EXE:lower(), 1, true) then
+            openProcess(name); ok = true; break
+        end
+    end
+    if not ok then log("FAILED to attach"); return end
+    log("attached to %s (base 0x%X)", TARGET_EXE, getAddress(TARGET_EXE))
+
+    local vd = find_view_data()
+    if not vd then log("FAILED to find ViewData"); return end
+    log("ViewData: 0x%X", vd)
+    unregisterSymbol("R6S_VIEW_DATA")
+    registerSymbol("R6S_VIEW_DATA", vd, false)
+
+    local cam = readVec3(vd + VD_CAM_POS_OFF)
+    local m   = readMat4(vd + VD_VIEW_PROJ_OFF)
+    log("camera=(%.2f, %.2f, %.2f)  vp[15]=%.4f", cam.x, cam.y, cam.z, m[15])
+
+    log("scanning bodies via vtable 0x%X ...", VT_BODY)
+    local raw = scan_qword(VT_BODY, 128)
+    local bodies = {}
+    for _, addr in ipairs(raw) do
+        if readQword(addr + BODY_VTABLE) == VT_BODY then
+            table.insert(bodies, addr)
+        end
+    end
+    log("bodies: %d (from %d raw)", #bodies, #raw)
+
+    for i, body in ipairs(bodies) do
+        local cc = resolve_cc(body)
+        if cc then
+            local pos = readVec3(cc + CC_WORLD_POS)
+            local d   = dist3(pos, cam)
+            local s   = w2s(m, pos)
+            local ss  = s and string.format("screen=(%.0f, %.0f)", s.x, s.y) or "off-screen"
+            log("[%d] body=0x%X cc=0x%X pos=(%.2f,%.2f,%.2f) dist=%.1f %s",
+                i, body, cc, pos.x, pos.y, pos.z, d, ss)
+        else
+            log("[%d] body=0x%X cc=?  (no CC in ±64 MB)", i, body)
+        end
+    end
+    print("=== done ===")
+end
+
+-- Auto-run once when the table opens.
+R6S_Recon_Run()
+</LuaScript>
+</CheatTable>

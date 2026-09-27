@@ -1,0 +1,1575 @@
+=== rainbow-external boot 2026-05-23 23:53:28 ===
+[23:53:28.273] === boot ===
+[23:53:28.273] debug log: OPEN (Downloads\rainbow-external-debug.log)
+[23:53:28.273] [*] pinging driver...
+[23:53:28.273] [ping/diag] ──────────────── driver connect attempt ────────────────
+[23:53:28.274] [ping/diag] IPC mechanism: WM_COPYDATA via SendMessageTimeoutW
+[23:53:28.274] [ping/diag] looking for window with class name "Notepad"
+[23:53:28.274] [ping/diag] REQUEST_MAGIC = 0x5463 (cheat side)
+[23:53:28.274] [ping/diag] expected response: req.result == 0x5463 AND req.completed == 1
+[23:53:28.274] [ping/diag] req struct size = 832 bytes (must match driver)
+[23:53:28.277] [ping/diag]   hwnd=0x0000000000E70A2A class="Notepad" title="*rainbow-external-debug.log - Notepad" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe  <-- MATCHES FindWindow target
+[23:53:28.277] [ping/diag]   hwnd=0x0000000000060D0C class="Notepad" title="*faw-daddaywd - Notepad" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe  <-- MATCHES FindWindow target
+[23:53:28.279] [ping/diag]   hwnd=0x0000000000670AA4 class="Notepad" title="*target = 12 - Notepad" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe  <-- MATCHES FindWindow target
+[23:53:28.279] [ping/diag]   hwnd=0x0000000000010D9C class="Notepad" title="*offsets.h - Notepad" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe  <-- MATCHES FindWindow target
+[23:53:28.279] [ping/diag]   hwnd=0x0000000000080D08 class="GDI+ Hook Window Class" title="GDI+ Window (Notepad.exe)" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.289] [ping/diag]   hwnd=0x0000000000030E64 class="MSCTFIME UI" title="MSCTFIME UI" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.289] [ping/diag]   hwnd=0x0000000000010E40 class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000010E2A class="MSCTFIME UI" title="MSCTFIME UI" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000E5096E class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000010E3E class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000010E38 class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000010E36 class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.291] [ping/diag]   hwnd=0x0000000000010E30 class="MSCTFIME UI" title="MSCTFIME UI" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000002C30BDC class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000000010E2E class="MSCTFIME UI" title="MSCTFIME UI" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000000010D9A class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000000010E2C class="MSCTFIME UI" title="MSCTFIME UI" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000000010D9E class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.292] [ping/diag]   hwnd=0x0000000000020D8E class="IME" title="Default IME" pid=23088 proc=C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2512.29.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+[23:53:28.298] [ping/diag] windows with class=="Notepad": 4  (this is what FindWindow finds)
+[23:53:28.298] [ping/diag] notepad-related windows total : 4
+[23:53:28.298] [ping/diag] ──────────────────────────────────────────────────────────
+[23:53:28.298] [ping] using hwnd=0x0000000000E90D16 source=GetConsoleWindow
+[23:53:28.298] [ping] sending CMD_PING to hwnd=0x0000000000E90D16 (notepad pid=23452) magic=0x5463
+[23:53:28.298] [ping] send_request returned=true in 0ms  | req.result=0x5463  req.completed=1
+[23:53:28.299] [+] driver responded (notepad hwnd = 0x0000000000E90D16)
+[23:53:28.300] [*] waiting for RainbowSix.exe...
+[23:53:28.308] [+] RainbowSix.exe ok
+[23:53:28.308] [+] pid = 12736
+[23:53:28.308] [*] resolving module base via CMD_MODULE_BASE...
+[23:53:28.308] [+] base = 0x7FF6C57F0000
+[23:53:28.308] [+] query handle open (proc_query=0x0000000000000240)
+[23:53:30.383] [*] startup mode = 1
+[23:53:30.383] [*] c_cache::setup_view — finding view_translation
+[23:53:30.385] [*]                        (load into a match if scan is needed)
+[23:53:31.186] [*] view: no manual address provided — trying cache then scan
+[23:53:31.186] [*] view: trying cached address 0x31941100
+[23:53:31.188] [*] validate: cam pos=(-101.060944, 26.754356, 2.472952)
+[23:53:31.188] [+] cache: view_translation = 0x31941100
+[23:53:32.541] [*] actor_source = 0 (entity hook)
+[23:53:33.348] [?] prompt=' Install entity hook now? [y/N]: ' answer='y' -> YES
+[23:53:33.348] [*] user confirmed hook install
+[23:53:33.349] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:53:33.349] [*] step 1/9: resolve hook target address
+[23:53:33.351] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:53:33.351] [+]   hook target = 0x7FF6CA513410
+[23:53:33.353] [*] step 2/9: check target isn't already patched
+[23:53:33.353] [*]   first bytes: 53 57
+[23:53:33.354] [*] step 3/9: read + validate 19-byte prologue
+[23:53:33.356] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:53:33.356] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:53:33.357] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:53:33.358] [+]   code cave addr = 0xA10000
+[23:53:33.358] [*]   code cave: validating @ 0xA10000
+[23:53:33.360] [+]   code cave: VA range OK
+[23:53:33.360] [+]   code cave: round-trip OK
+[23:53:33.361] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:53:33.361] [+]   data cave addr = 0x2260000
+[23:53:33.363] [*]   data cave: validating @ 0x2260000
+[23:53:33.363] [+]   data cave: VA range OK
+[23:53:33.364] [+]   data cave: round-trip OK
+[23:53:33.364] [*] step 6/9: zero the data cave (536 bytes)
+[23:53:33.366] [+]   data cave zeroed
+[23:53:33.366] [*] step 7/9: build + write + verify shellcode
+[23:53:33.367] [*]   shellcode size = 73 bytes
+[23:53:33.369] [+]   shellcode verified in cave
+[23:53:33.370] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:53:33.370] [+]   code cave now RX (was RW)
+[23:53:33.371] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:53:33.373] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:53:33.373] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:53:33.374] [+]   PTE remap install OK — original .text PFN untouched
+[23:53:33.374] [+]   FF 25 patch verified at target
+[23:53:33.376] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:53:33.377] [*] waiting for siege window (creating overlay)...
+[23:53:33.447] [+] siege window (creating overlay) ok
+[23:53:35.378] [*] transient hook: capture window closed (age=2001ms, seen=3) — uninstalling
+[23:53:35.379] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:53:35.379] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:53:35.381] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:53:35.381] [+]   prologue restored byte-for-byte
+[23:53:35.382] [*] step 2/3: settle (500ms) before freeing caves
+[23:53:35.884] [*] step 3/3: free caves via CMD_FREE
+[23:53:35.884] [+]   code cave freed @ 0xA10000
+[23:53:35.884] [+]   data cave freed @ 0x2260000
+[23:53:35.886] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:54:40.667] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:54:40.669] [*] step 1/9: resolve hook target address
+[23:54:40.669] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:54:40.670] [+]   hook target = 0x7FF6CA513410
+[23:54:40.670] [*] step 2/9: check target isn't already patched
+[23:54:40.672] [*]   first bytes: 53 57
+[23:54:40.672] [*] step 3/9: read + validate 19-byte prologue
+[23:54:40.674] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:54:40.674] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:54:40.675] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:54:40.676] [+]   code cave addr = 0xA10000
+[23:54:40.677] [*]   code cave: validating @ 0xA10000
+[23:54:40.678] [+]   code cave: VA range OK
+[23:54:40.678] [+]   code cave: round-trip OK
+[23:54:40.678] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:54:40.680] [+]   data cave addr = 0x2260000
+[23:54:40.681] [*]   data cave: validating @ 0x2260000
+[23:54:40.681] [+]   data cave: VA range OK
+[23:54:40.683] [+]   data cave: round-trip OK
+[23:54:40.683] [*] step 6/9: zero the data cave (536 bytes)
+[23:54:40.684] [+]   data cave zeroed
+[23:54:40.684] [*] step 7/9: build + write + verify shellcode
+[23:54:40.686] [*]   shellcode size = 72 bytes
+[23:54:40.686] [+]   shellcode verified in cave
+[23:54:40.688] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:54:40.688] [+]   code cave now RX (was RW)
+[23:54:40.688] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:54:40.690] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:54:40.690] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:54:40.691] [+]   PTE remap install OK — original .text PFN untouched
+[23:54:40.691] [+]   FF 25 patch verified at target
+[23:54:40.693] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:54:50.700] [*] transient hook: EMERGENCY tear-down (age=10006ms, seen=0) — uninstalling
+[23:54:50.700] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:54:50.701] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:54:50.701] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:54:50.703] [+]   prologue restored byte-for-byte
+[23:54:50.703] [*] step 2/3: settle (500ms) before freeing caves
+[23:54:51.212] [*] step 3/3: free caves via CMD_FREE
+[23:54:51.212] [+]   code cave freed @ 0xA10000
+[23:54:51.214] [+]   data cave freed @ 0x2260000
+[23:54:51.214] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:56:27.933] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:56:27.933] [*] step 1/9: resolve hook target address
+[23:56:27.935] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:56:27.936] [+]   hook target = 0x7FF6CA513410
+[23:56:27.936] [*] step 2/9: check target isn't already patched
+[23:56:27.938] [*]   first bytes: 53 57
+[23:56:27.938] [*] step 3/9: read + validate 19-byte prologue
+[23:56:27.939] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:56:27.939] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:56:27.941] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:56:27.941] [+]   code cave addr = 0xA10000
+[23:56:27.943] [*]   code cave: validating @ 0xA10000
+[23:56:27.943] [+]   code cave: VA range OK
+[23:56:27.944] [+]   code cave: round-trip OK
+[23:56:27.944] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:56:27.946] [+]   data cave addr = 0x2260000
+[23:56:27.947] [*]   data cave: validating @ 0x2260000
+[23:56:27.948] [+]   data cave: VA range OK
+[23:56:27.948] [+]   data cave: round-trip OK
+[23:56:27.950] [*] step 6/9: zero the data cave (536 bytes)
+[23:56:27.950] [+]   data cave zeroed
+[23:56:27.951] [*] step 7/9: build + write + verify shellcode
+[23:56:27.953] [*]   shellcode size = 81 bytes
+[23:56:27.953] [+]   shellcode verified in cave
+[23:56:27.954] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:56:27.954] [+]   code cave now RX (was RW)
+[23:56:27.956] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:56:27.956] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:56:27.957] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:56:27.957] [+]   PTE remap install OK — original .text PFN untouched
+[23:56:27.959] [+]   FF 25 patch verified at target
+[23:56:27.960] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:56:37.967] [*] transient hook: EMERGENCY tear-down (age=10006ms, seen=0) — uninstalling
+[23:56:37.967] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:56:37.969] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:56:37.969] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:56:37.971] [+]   prologue restored byte-for-byte
+[23:56:37.971] [*] step 2/3: settle (500ms) before freeing caves
+[23:56:38.486] [*] step 3/3: free caves via CMD_FREE
+[23:56:38.486] [+]   code cave freed @ 0xA10000
+[23:56:38.487] [+]   data cave freed @ 0x2260000
+[23:56:38.487] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:57:07.649] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:57:07.649] [*] step 1/9: resolve hook target address
+[23:57:07.651] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:57:07.651] [+]   hook target = 0x7FF6CA513410
+[23:57:07.652] [*] step 2/9: check target isn't already patched
+[23:57:07.652] [*]   first bytes: 53 57
+[23:57:07.654] [*] step 3/9: read + validate 19-byte prologue
+[23:57:07.654] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:57:07.655] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:57:07.655] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:57:07.657] [+]   code cave addr = 0xA10000
+[23:57:07.658] [*]   code cave: validating @ 0xA10000
+[23:57:07.658] [+]   code cave: VA range OK
+[23:57:07.660] [+]   code cave: round-trip OK
+[23:57:07.660] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:57:07.661] [+]   data cave addr = 0x2260000
+[23:57:07.661] [*]   data cave: validating @ 0x2260000
+[23:57:07.663] [+]   data cave: VA range OK
+[23:57:07.663] [+]   data cave: round-trip OK
+[23:57:07.664] [*] step 6/9: zero the data cave (536 bytes)
+[23:57:07.668] [+]   data cave zeroed
+[23:57:07.669] [*] step 7/9: build + write + verify shellcode
+[23:57:07.670] [*]   shellcode size = 74 bytes
+[23:57:07.670] [+]   shellcode verified in cave
+[23:57:07.671] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:57:07.671] [+]   code cave now RX (was RW)
+[23:57:07.673] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:57:07.673] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:57:07.674] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:57:07.676] [+]   PTE remap install OK — original .text PFN untouched
+[23:57:07.676] [+]   FF 25 patch verified at target
+[23:57:07.677] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:57:17.684] [*] transient hook: EMERGENCY tear-down (age=10006ms, seen=0) — uninstalling
+[23:57:17.684] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:57:17.685] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:57:17.685] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:57:17.687] [+]   prologue restored byte-for-byte
+[23:57:17.688] [*] step 2/3: settle (500ms) before freeing caves
+[23:57:18.195] [*] step 3/3: free caves via CMD_FREE
+[23:57:18.195] [+]   code cave freed @ 0xA10000
+[23:57:18.197] [+]   data cave freed @ 0x2260000
+[23:57:18.198] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:57:34.352] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:57:34.352] [*] step 1/9: resolve hook target address
+[23:57:34.353] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:57:34.353] [+]   hook target = 0x7FF6CA513410
+[23:57:34.355] [*] step 2/9: check target isn't already patched
+[23:57:34.355] [*]   first bytes: 53 57
+[23:57:34.356] [*] step 3/9: read + validate 19-byte prologue
+[23:57:34.358] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:57:34.358] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:57:34.359] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:57:34.359] [+]   code cave addr = 0xA10000
+[23:57:34.361] [*]   code cave: validating @ 0xA10000
+[23:57:34.361] [+]   code cave: VA range OK
+[23:57:34.362] [+]   code cave: round-trip OK
+[23:57:34.364] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:57:34.364] [+]   data cave addr = 0x2260000
+[23:57:34.365] [*]   data cave: validating @ 0x2260000
+[23:57:34.365] [+]   data cave: VA range OK
+[23:57:34.367] [+]   data cave: round-trip OK
+[23:57:34.368] [*] step 6/9: zero the data cave (536 bytes)
+[23:57:34.368] [+]   data cave zeroed
+[23:57:34.369] [*] step 7/9: build + write + verify shellcode
+[23:57:34.369] [*]   shellcode size = 75 bytes
+[23:57:34.371] [+]   shellcode verified in cave
+[23:57:34.371] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:57:34.373] [+]   code cave now RX (was RW)
+[23:57:34.373] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:57:34.374] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:57:34.376] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:57:34.376] [+]   PTE remap install OK — original .text PFN untouched
+[23:57:34.377] [+]   FF 25 patch verified at target
+[23:57:34.377] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:57:39.493] [*] setup_hook: already installed, skipping
+[23:57:44.385] [*] transient hook: EMERGENCY tear-down (age=10006ms, seen=0) — uninstalling
+[23:57:44.385] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:57:44.386] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:57:44.387] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:57:44.388] [+]   prologue restored byte-for-byte
+[23:57:44.389] [*] step 2/3: settle (500ms) before freeing caves
+[23:57:44.902] [*] step 3/3: free caves via CMD_FREE
+[23:57:44.902] [+]   code cave freed @ 0xA10000
+[23:57:44.904] [+]   data cave freed @ 0x2260000
+[23:57:44.904] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:57:48.816] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:57:48.817] [*] step 1/9: resolve hook target address
+[23:57:48.818] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:57:48.818] [+]   hook target = 0x7FF6CA513410
+[23:57:48.819] [*] step 2/9: check target isn't already patched
+[23:57:48.821] [*]   first bytes: 53 57
+[23:57:48.821] [*] step 3/9: read + validate 19-byte prologue
+[23:57:48.822] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:57:48.822] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:57:48.824] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:57:48.824] [+]   code cave addr = 0xA10000
+[23:57:48.825] [*]   code cave: validating @ 0xA10000
+[23:57:48.825] [+]   code cave: VA range OK
+[23:57:48.827] [+]   code cave: round-trip OK
+[23:57:48.827] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:57:48.828] [+]   data cave addr = 0x2260000
+[23:57:48.829] [*]   data cave: validating @ 0x2260000
+[23:57:48.829] [+]   data cave: VA range OK
+[23:57:48.831] [+]   data cave: round-trip OK
+[23:57:48.831] [*] step 6/9: zero the data cave (536 bytes)
+[23:57:48.832] [+]   data cave zeroed
+[23:57:48.832] [*] step 7/9: build + write + verify shellcode
+[23:57:48.834] [*]   shellcode size = 84 bytes
+[23:57:48.834] [+]   shellcode verified in cave
+[23:57:48.836] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:57:48.837] [+]   code cave now RX (was RW)
+[23:57:48.838] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:57:48.838] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:57:48.838] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:57:48.840] [+]   PTE remap install OK — original .text PFN untouched
+[23:57:48.841] [+]   FF 25 patch verified at target
+[23:57:48.841] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:57:58.859] [*] transient hook: EMERGENCY tear-down (age=10016ms, seen=0) — uninstalling
+[23:57:58.859] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:57:58.861] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:57:58.861] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:57:58.862] [+]   prologue restored byte-for-byte
+[23:57:58.862] [*] step 2/3: settle (500ms) before freeing caves
+[23:57:59.374] [*] step 3/3: free caves via CMD_FREE
+[23:57:59.374] [+]   code cave freed @ 0xA10000
+[23:57:59.376] [+]   data cave freed @ 0x2260000
+[23:57:59.377] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:58:07.594] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:58:07.594] [*] step 1/9: resolve hook target address
+[23:58:07.595] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:58:07.596] [+]   hook target = 0x7FF6CA513410
+[23:58:07.597] [*] step 2/9: check target isn't already patched
+[23:58:07.598] [*]   first bytes: 53 57
+[23:58:07.598] [*] step 3/9: read + validate 19-byte prologue
+[23:58:07.600] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:58:07.600] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:58:07.601] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:58:07.601] [+]   code cave addr = 0xA10000
+[23:58:07.603] [*]   code cave: validating @ 0xA10000
+[23:58:07.604] [+]   code cave: VA range OK
+[23:58:07.604] [+]   code cave: round-trip OK
+[23:58:07.606] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:58:07.607] [+]   data cave addr = 0x2260000
+[23:58:07.607] [*]   data cave: validating @ 0x2260000
+[23:58:07.608] [+]   data cave: VA range OK
+[23:58:07.608] [+]   data cave: round-trip OK
+[23:58:07.610] [*] step 6/9: zero the data cave (536 bytes)
+[23:58:07.610] [+]   data cave zeroed
+[23:58:07.611] [*] step 7/9: build + write + verify shellcode
+[23:58:07.611] [*]   shellcode size = 80 bytes
+[23:58:07.613] [+]   shellcode verified in cave
+[23:58:07.613] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:58:07.614] [+]   code cave now RX (was RW)
+[23:58:07.614] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:58:07.616] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:58:07.617] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:58:07.617] [+]   PTE remap install OK — original .text PFN untouched
+[23:58:07.617] [+]   FF 25 patch verified at target
+[23:58:07.619] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:58:08.113] [*] setup_hook: already installed, skipping
+[23:58:08.674] [*] setup_hook: already installed, skipping
+[23:58:09.927] [*] setup_hook: already installed, skipping
+[23:58:17.621] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[23:58:17.621] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:58:17.622] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:58:17.622] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:58:17.624] [+]   prologue restored byte-for-byte
+[23:58:17.624] [*] step 2/3: settle (500ms) before freeing caves
+[23:58:18.131] [*] step 3/3: free caves via CMD_FREE
+[23:58:18.131] [+]   code cave freed @ 0xA10000
+[23:58:18.133] [+]   data cave freed @ 0x2260000
+[23:58:18.133] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:59:00.809] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:59:00.809] [*] step 1/9: resolve hook target address
+[23:59:00.811] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:59:00.812] [+]   hook target = 0x7FF6CA513410
+[23:59:00.812] [*] step 2/9: check target isn't already patched
+[23:59:00.814] [*]   first bytes: 53 57
+[23:59:00.814] [*] step 3/9: read + validate 19-byte prologue
+[23:59:00.815] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:59:00.816] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:59:00.816] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:59:00.818] [+]   code cave addr = 0xA10000
+[23:59:00.818] [*]   code cave: validating @ 0xA10000
+[23:59:00.819] [+]   code cave: VA range OK
+[23:59:00.819] [+]   code cave: round-trip OK
+[23:59:00.821] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:59:00.821] [+]   data cave addr = 0x2260000
+[23:59:00.822] [*]   data cave: validating @ 0x2260000
+[23:59:00.822] [+]   data cave: VA range OK
+[23:59:00.824] [+]   data cave: round-trip OK
+[23:59:00.824] [*] step 6/9: zero the data cave (536 bytes)
+[23:59:00.825] [+]   data cave zeroed
+[23:59:00.825] [*] step 7/9: build + write + verify shellcode
+[23:59:00.827] [*]   shellcode size = 76 bytes
+[23:59:00.828] [+]   shellcode verified in cave
+[23:59:00.828] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:59:00.829] [+]   code cave now RX (was RW)
+[23:59:00.829] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:59:00.831] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:59:00.831] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:59:00.832] [+]   PTE remap install OK — original .text PFN untouched
+[23:59:00.832] [+]   FF 25 patch verified at target
+[23:59:00.834] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:59:05.659] [*] setup_hook: already installed, skipping
+[23:59:05.970] [*] setup_hook: already installed, skipping
+[23:59:08.813] [*] setup_hook: already installed, skipping
+[23:59:10.843] [*] transient hook: EMERGENCY tear-down (age=10007ms, seen=0) — uninstalling
+[23:59:10.844] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:59:10.844] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:59:10.844] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:59:10.846] [+]   prologue restored byte-for-byte
+[23:59:10.846] [*] step 2/3: settle (500ms) before freeing caves
+[23:59:11.363] [*] step 3/3: free caves via CMD_FREE
+[23:59:11.364] [+]   code cave freed @ 0xA10000
+[23:59:11.364] [+]   data cave freed @ 0x2260000
+[23:59:11.364] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:59:15.977] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:59:15.978] [*] step 1/9: resolve hook target address
+[23:59:15.978] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:59:15.979] [+]   hook target = 0x7FF6CA513410
+[23:59:15.979] [*] step 2/9: check target isn't already patched
+[23:59:15.981] [*]   first bytes: 53 57
+[23:59:15.981] [*] step 3/9: read + validate 19-byte prologue
+[23:59:15.982] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:59:15.983] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:59:15.984] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:59:15.984] [+]   code cave addr = 0xA10000
+[23:59:15.985] [*]   code cave: validating @ 0xA10000
+[23:59:15.985] [+]   code cave: VA range OK
+[23:59:15.988] [+]   code cave: round-trip OK
+[23:59:15.988] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:59:15.988] [+]   data cave addr = 0x2260000
+[23:59:15.990] [*]   data cave: validating @ 0x2260000
+[23:59:15.990] [+]   data cave: VA range OK
+[23:59:15.991] [+]   data cave: round-trip OK
+[23:59:15.993] [*] step 6/9: zero the data cave (536 bytes)
+[23:59:15.994] [+]   data cave zeroed
+[23:59:15.994] [*] step 7/9: build + write + verify shellcode
+[23:59:15.994] [*]   shellcode size = 79 bytes
+[23:59:15.996] [+]   shellcode verified in cave
+[23:59:15.996] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:59:15.998] [+]   code cave now RX (was RW)
+[23:59:15.998] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:59:15.998] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:59:16.000] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:59:16.000] [+]   PTE remap install OK — original .text PFN untouched
+[23:59:16.001] [+]   FF 25 patch verified at target
+[23:59:16.001] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:59:18.993] [*] setup_hook: already installed, skipping
+[23:59:24.658] [*] setup_hook: already installed, skipping
+[23:59:25.463] [*] setup_hook: already installed, skipping
+[23:59:26.005] [*] transient hook: EMERGENCY tear-down (age=10002ms, seen=0) — uninstalling
+[23:59:26.005] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:59:26.006] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:59:26.007] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:59:26.008] [+]   prologue restored byte-for-byte
+[23:59:26.008] [*] step 2/3: settle (500ms) before freeing caves
+[23:59:26.518] [*] step 3/3: free caves via CMD_FREE
+[23:59:26.518] [+]   code cave freed @ 0xA10000
+[23:59:26.520] [+]   data cave freed @ 0x2260000
+[23:59:26.520] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:59:26.581] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:59:26.581] [*] step 1/9: resolve hook target address
+[23:59:26.583] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:59:26.583] [+]   hook target = 0x7FF6CA513410
+[23:59:26.584] [*] step 2/9: check target isn't already patched
+[23:59:26.584] [*]   first bytes: 53 57
+[23:59:26.586] [*] step 3/9: read + validate 19-byte prologue
+[23:59:26.586] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:59:26.587] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:59:26.587] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:59:26.589] [+]   code cave addr = 0xA10000
+[23:59:26.589] [*]   code cave: validating @ 0xA10000
+[23:59:26.590] [+]   code cave: VA range OK
+[23:59:26.590] [+]   code cave: round-trip OK
+[23:59:26.592] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:59:26.593] [+]   data cave addr = 0x2260000
+[23:59:26.593] [*]   data cave: validating @ 0x2260000
+[23:59:26.593] [+]   data cave: VA range OK
+[23:59:26.595] [+]   data cave: round-trip OK
+[23:59:26.595] [*] step 6/9: zero the data cave (536 bytes)
+[23:59:26.596] [+]   data cave zeroed
+[23:59:26.598] [*] step 7/9: build + write + verify shellcode
+[23:59:26.598] [*]   shellcode size = 82 bytes
+[23:59:26.599] [+]   shellcode verified in cave
+[23:59:26.599] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:59:26.601] [+]   code cave now RX (was RW)
+[23:59:26.601] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:59:26.602] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:59:26.603] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:59:26.603] [+]   PTE remap install OK — original .text PFN untouched
+[23:59:26.605] [+]   FF 25 patch verified at target
+[23:59:26.605] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:59:36.608] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[23:59:36.609] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:59:36.611] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:59:36.613] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:59:36.616] [+]   prologue restored byte-for-byte
+[23:59:36.619] [*] step 2/3: settle (500ms) before freeing caves
+[23:59:37.127] [*] step 3/3: free caves via CMD_FREE
+[23:59:37.128] [+]   code cave freed @ 0xA10000
+[23:59:37.128] [+]   data cave freed @ 0x2260000
+[23:59:37.128] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:59:37.130] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:59:37.131] [*] step 1/9: resolve hook target address
+[23:59:37.131] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:59:37.133] [+]   hook target = 0x7FF6CA513410
+[23:59:37.133] [*] step 2/9: check target isn't already patched
+[23:59:37.134] [*]   first bytes: 53 57
+[23:59:37.134] [*] step 3/9: read + validate 19-byte prologue
+[23:59:37.136] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:59:37.136] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:59:37.138] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:59:37.138] [+]   code cave addr = 0xA10000
+[23:59:37.138] [*]   code cave: validating @ 0xA10000
+[23:59:37.140] [+]   code cave: VA range OK
+[23:59:37.140] [+]   code cave: round-trip OK
+[23:59:37.141] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:59:37.142] [+]   data cave addr = 0x2260000
+[23:59:37.143] [*]   data cave: validating @ 0x2260000
+[23:59:37.143] [+]   data cave: VA range OK
+[23:59:37.144] [+]   data cave: round-trip OK
+[23:59:37.144] [*] step 6/9: zero the data cave (536 bytes)
+[23:59:37.146] [+]   data cave zeroed
+[23:59:37.146] [*] step 7/9: build + write + verify shellcode
+[23:59:37.148] [*]   shellcode size = 86 bytes
+[23:59:37.148] [+]   shellcode verified in cave
+[23:59:37.148] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:59:37.150] [+]   code cave now RX (was RW)
+[23:59:37.150] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:59:37.151] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:59:37.152] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:59:37.153] [+]   PTE remap install OK — original .text PFN untouched
+[23:59:37.153] [+]   FF 25 patch verified at target
+[23:59:37.154] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:59:38.461] [*] setup_hook: already installed, skipping
+[23:59:41.826] [*] setup_hook: already installed, skipping
+[23:59:45.060] [*] setup_hook: already installed, skipping
+[23:59:47.171] [*] transient hook: EMERGENCY tear-down (age=10015ms, seen=0) — uninstalling
+[23:59:47.172] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[23:59:47.173] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[23:59:47.173] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[23:59:47.174] [+]   prologue restored byte-for-byte
+[23:59:47.174] [*] step 2/3: settle (500ms) before freeing caves
+[23:59:47.690] [*] step 3/3: free caves via CMD_FREE
+[23:59:47.690] [+]   code cave freed @ 0xA10000
+[23:59:47.691] [+]   data cave freed @ 0x2260000
+[23:59:47.692] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[23:59:50.239] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[23:59:50.239] [*] step 1/9: resolve hook target address
+[23:59:50.241] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[23:59:50.242] [+]   hook target = 0x7FF6CA513410
+[23:59:50.242] [*] step 2/9: check target isn't already patched
+[23:59:50.242] [*]   first bytes: 53 57
+[23:59:50.244] [*] step 3/9: read + validate 19-byte prologue
+[23:59:50.244] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[23:59:50.245] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[23:59:50.245] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[23:59:50.247] [+]   code cave addr = 0xA10000
+[23:59:50.248] [*]   code cave: validating @ 0xA10000
+[23:59:50.248] [+]   code cave: VA range OK
+[23:59:50.249] [+]   code cave: round-trip OK
+[23:59:50.249] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[23:59:50.251] [+]   data cave addr = 0x2260000
+[23:59:50.252] [*]   data cave: validating @ 0x2260000
+[23:59:50.252] [+]   data cave: VA range OK
+[23:59:50.254] [+]   data cave: round-trip OK
+[23:59:50.254] [*] step 6/9: zero the data cave (536 bytes)
+[23:59:50.255] [+]   data cave zeroed
+[23:59:50.255] [*] step 7/9: build + write + verify shellcode
+[23:59:50.256] [*]   shellcode size = 85 bytes
+[23:59:50.258] [+]   shellcode verified in cave
+[23:59:50.258] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[23:59:50.260] [+]   code cave now RX (was RW)
+[23:59:50.260] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[23:59:50.261] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[23:59:50.262] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[23:59:50.263] [+]   PTE remap install OK — original .text PFN untouched
+[23:59:50.264] [+]   FF 25 patch verified at target
+[23:59:50.264] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[23:59:52.738] [*] setup_hook: already installed, skipping
+[23:59:55.545] [*] setup_hook: already installed, skipping
+[23:59:57.044] [*] setup_hook: already installed, skipping
+[00:00:00.278] [*] transient hook: EMERGENCY tear-down (age=10012ms, seen=0) — uninstalling
+[00:00:00.278] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:00:00.278] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:00:00.280] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:00:00.281] [+]   prologue restored byte-for-byte
+[00:00:00.282] [*] step 2/3: settle (500ms) before freeing caves
+[00:00:00.792] [*] step 3/3: free caves via CMD_FREE
+[00:00:00.792] [+]   code cave freed @ 0xA10000
+[00:00:00.794] [+]   data cave freed @ 0x2260000
+[00:00:00.794] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:00:15.939] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:00:15.939] [*] step 1/9: resolve hook target address
+[00:00:15.941] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:00:15.941] [+]   hook target = 0x7FF6CA513410
+[00:00:15.942] [*] step 2/9: check target isn't already patched
+[00:00:15.942] [*]   first bytes: 53 57
+[00:00:15.944] [*] step 3/9: read + validate 19-byte prologue
+[00:00:15.944] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:00:15.946] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:00:15.946] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:00:15.946] [+]   code cave addr = 0xA10000
+[00:00:15.948] [*]   code cave: validating @ 0xA10000
+[00:00:15.948] [+]   code cave: VA range OK
+[00:00:15.949] [+]   code cave: round-trip OK
+[00:00:15.951] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:00:15.951] [+]   data cave addr = 0x2260000
+[00:00:15.952] [*]   data cave: validating @ 0x2260000
+[00:00:15.953] [+]   data cave: VA range OK
+[00:00:15.953] [+]   data cave: round-trip OK
+[00:00:15.955] [*] step 6/9: zero the data cave (536 bytes)
+[00:00:15.955] [+]   data cave zeroed
+[00:00:15.955] [*] step 7/9: build + write + verify shellcode
+[00:00:15.957] [*]   shellcode size = 75 bytes
+[00:00:15.958] [+]   shellcode verified in cave
+[00:00:15.958] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:00:15.959] [+]   code cave now RX (was RW)
+[00:00:15.959] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:00:15.961] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:00:15.961] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:00:15.962] [+]   PTE remap install OK — original .text PFN untouched
+[00:00:15.962] [+]   FF 25 patch verified at target
+[00:00:15.964] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:00:16.950] [*] setup_hook: already installed, skipping
+[00:00:20.021] [*] setup_hook: already installed, skipping
+[00:00:25.967] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[00:00:25.968] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:00:25.968] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:00:25.969] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:00:25.970] [+]   prologue restored byte-for-byte
+[00:00:25.971] [*] step 2/3: settle (500ms) before freeing caves
+[00:00:26.479] [*] step 3/3: free caves via CMD_FREE
+[00:00:26.480] [+]   code cave freed @ 0xA10000
+[00:00:26.481] [+]   data cave freed @ 0x2260000
+[00:00:26.481] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:01:17.496] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:01:17.496] [*] step 1/9: resolve hook target address
+[00:01:17.498] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:01:17.498] [+]   hook target = 0x7FF6CA513410
+[00:01:17.498] [*] step 2/9: check target isn't already patched
+[00:01:17.500] [*]   first bytes: 53 57
+[00:01:17.500] [*] step 3/9: read + validate 19-byte prologue
+[00:01:17.501] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:01:17.501] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:01:17.503] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:01:17.504] [+]   code cave addr = 0xA10000
+[00:01:17.504] [*]   code cave: validating @ 0xA10000
+[00:01:17.506] [+]   code cave: VA range OK
+[00:01:17.506] [+]   code cave: round-trip OK
+[00:01:17.507] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:01:17.508] [+]   data cave addr = 0x2260000
+[00:01:17.509] [*]   data cave: validating @ 0x2260000
+[00:01:17.510] [+]   data cave: VA range OK
+[00:01:17.510] [+]   data cave: round-trip OK
+[00:01:17.510] [*] step 6/9: zero the data cave (536 bytes)
+[00:01:17.512] [+]   data cave zeroed
+[00:01:17.513] [*] step 7/9: build + write + verify shellcode
+[00:01:17.513] [*]   shellcode size = 73 bytes
+[00:01:17.514] [+]   shellcode verified in cave
+[00:01:17.514] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:01:17.516] [+]   code cave now RX (was RW)
+[00:01:17.516] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:01:17.518] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:01:17.518] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:01:17.518] [+]   PTE remap install OK — original .text PFN untouched
+[00:01:17.520] [+]   FF 25 patch verified at target
+[00:01:17.520] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:01:20.581] [*] setup_hook: already installed, skipping
+[00:01:22.387] [*] setup_hook: already installed, skipping
+[00:01:27.523] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[00:01:27.523] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:01:27.524] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:01:27.526] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:01:27.526] [+]   prologue restored byte-for-byte
+[00:01:27.527] [*] step 2/3: settle (500ms) before freeing caves
+[00:01:28.043] [*] step 3/3: free caves via CMD_FREE
+[00:01:28.044] [+]   code cave freed @ 0xA10000
+[00:01:28.044] [+]   data cave freed @ 0x2260000
+[00:01:28.044] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:02:35.039] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:02:35.039] [*] step 1/9: resolve hook target address
+[00:02:35.041] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:02:35.041] [+]   hook target = 0x7FF6CA513410
+[00:02:35.043] [*] step 2/9: check target isn't already patched
+[00:02:35.043] [*]   first bytes: 53 57
+[00:02:35.045] [*] step 3/9: read + validate 19-byte prologue
+[00:02:35.045] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:02:35.045] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:02:35.047] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:02:35.048] [+]   code cave addr = 0xA10000
+[00:02:35.048] [*]   code cave: validating @ 0xA10000
+[00:02:35.048] [+]   code cave: VA range OK
+[00:02:35.050] [+]   code cave: round-trip OK
+[00:02:35.050] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:02:35.051] [+]   data cave addr = 0x2260000
+[00:02:35.051] [*]   data cave: validating @ 0x2260000
+[00:02:35.053] [+]   data cave: VA range OK
+[00:02:35.053] [+]   data cave: round-trip OK
+[00:02:35.054] [*] step 6/9: zero the data cave (536 bytes)
+[00:02:35.056] [+]   data cave zeroed
+[00:02:35.056] [*] step 7/9: build + write + verify shellcode
+[00:02:35.057] [*]   shellcode size = 84 bytes
+[00:02:35.057] [+]   shellcode verified in cave
+[00:02:35.059] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:02:35.059] [+]   code cave now RX (was RW)
+[00:02:35.060] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:02:35.060] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:02:35.062] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:02:35.062] [+]   PTE remap install OK — original .text PFN untouched
+[00:02:35.063] [+]   FF 25 patch verified at target
+[00:02:35.064] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:02:45.071] [*] transient hook: EMERGENCY tear-down (age=10005ms, seen=0) — uninstalling
+[00:02:45.071] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:02:45.072] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:02:45.072] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:02:45.074] [+]   prologue restored byte-for-byte
+[00:02:45.075] [*] step 2/3: settle (500ms) before freeing caves
+[00:02:45.586] [*] step 3/3: free caves via CMD_FREE
+[00:02:45.586] [+]   code cave freed @ 0xA10000
+[00:02:45.587] [+]   data cave freed @ 0x2260000
+[00:02:45.587] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:03:11.017] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:03:11.018] [*] step 1/9: resolve hook target address
+[00:03:11.018] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:03:11.020] [+]   hook target = 0x7FF6CA513410
+[00:03:11.020] [*] step 2/9: check target isn't already patched
+[00:03:11.021] [*]   first bytes: 53 57
+[00:03:11.023] [*] step 3/9: read + validate 19-byte prologue
+[00:03:11.023] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:03:11.024] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:03:11.024] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:03:11.026] [+]   code cave addr = 0xA10000
+[00:03:11.026] [*]   code cave: validating @ 0xA10000
+[00:03:11.027] [+]   code cave: VA range OK
+[00:03:11.028] [+]   code cave: round-trip OK
+[00:03:11.028] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:03:11.030] [+]   data cave addr = 0x2260000
+[00:03:11.031] [*]   data cave: validating @ 0x2260000
+[00:03:11.031] [+]   data cave: VA range OK
+[00:03:11.032] [+]   data cave: round-trip OK
+[00:03:11.033] [*] step 6/9: zero the data cave (536 bytes)
+[00:03:11.033] [+]   data cave zeroed
+[00:03:11.035] [*] step 7/9: build + write + verify shellcode
+[00:03:11.035] [*]   shellcode size = 77 bytes
+[00:03:11.036] [+]   shellcode verified in cave
+[00:03:11.036] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:03:11.038] [+]   code cave now RX (was RW)
+[00:03:11.038] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:03:11.039] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:03:11.039] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:03:11.041] [+]   PTE remap install OK — original .text PFN untouched
+[00:03:11.041] [+]   FF 25 patch verified at target
+[00:03:11.043] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:03:13.972] [*] setup_hook: already installed, skipping
+[00:03:21.051] [*] transient hook: EMERGENCY tear-down (age=10007ms, seen=0) — uninstalling
+[00:03:21.052] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:03:21.053] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:03:21.054] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:03:21.054] [+]   prologue restored byte-for-byte
+[00:03:21.056] [*] step 2/3: settle (500ms) before freeing caves
+[00:03:21.561] [*] step 3/3: free caves via CMD_FREE
+[00:03:21.562] [+]   code cave freed @ 0xA10000
+[00:03:21.562] [+]   data cave freed @ 0x2260000
+[00:03:21.563] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:03:55.005] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:03:55.005] [*] step 1/9: resolve hook target address
+[00:03:55.007] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:03:55.008] [+]   hook target = 0x7FF6CA513410
+[00:03:55.008] [*] step 2/9: check target isn't already patched
+[00:03:55.010] [*]   first bytes: 53 57
+[00:03:55.010] [*] step 3/9: read + validate 19-byte prologue
+[00:03:55.011] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:03:55.011] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:03:55.013] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:03:55.013] [+]   code cave addr = 0xA10000
+[00:03:55.014] [*]   code cave: validating @ 0xA10000
+[00:03:55.014] [+]   code cave: VA range OK
+[00:03:55.016] [+]   code cave: round-trip OK
+[00:03:55.017] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:03:55.017] [+]   data cave addr = 0x2260000
+[00:03:55.019] [*]   data cave: validating @ 0x2260000
+[00:03:55.019] [+]   data cave: VA range OK
+[00:03:55.020] [+]   data cave: round-trip OK
+[00:03:55.021] [*] step 6/9: zero the data cave (536 bytes)
+[00:03:55.021] [+]   data cave zeroed
+[00:03:55.023] [*] step 7/9: build + write + verify shellcode
+[00:03:55.023] [*]   shellcode size = 78 bytes
+[00:03:55.024] [+]   shellcode verified in cave
+[00:03:55.025] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:03:55.025] [+]   code cave now RX (was RW)
+[00:03:55.027] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:03:55.028] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:03:55.028] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:03:55.029] [+]   PTE remap install OK — original .text PFN untouched
+[00:03:55.030] [+]   FF 25 patch verified at target
+[00:03:55.031] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:03:55.461] [*] setup_hook: already installed, skipping
+[00:03:55.650] [*] setup_hook: already installed, skipping
+[00:03:59.477] [*] setup_hook: already installed, skipping
+[00:04:05.047] [*] transient hook: EMERGENCY tear-down (age=10016ms, seen=0) — uninstalling
+[00:04:05.048] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:04:05.050] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:04:05.051] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:04:05.051] [+]   prologue restored byte-for-byte
+[00:04:05.051] [*] step 2/3: settle (500ms) before freeing caves
+[00:04:05.559] [*] step 3/3: free caves via CMD_FREE
+[00:04:05.560] [+]   code cave freed @ 0xA10000
+[00:04:05.561] [+]   data cave freed @ 0x2260000
+[00:04:05.563] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:04:10.627] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:04:10.628] [*] step 1/9: resolve hook target address
+[00:04:10.628] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:04:10.629] [+]   hook target = 0x7FF6CA513410
+[00:04:10.631] [*] step 2/9: check target isn't already patched
+[00:04:10.631] [*]   first bytes: 53 57
+[00:04:10.632] [*] step 3/9: read + validate 19-byte prologue
+[00:04:10.632] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:04:10.634] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:04:10.634] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:04:10.635] [+]   code cave addr = 0xA10000
+[00:04:10.637] [*]   code cave: validating @ 0xA10000
+[00:04:10.638] [+]   code cave: VA range OK
+[00:04:10.638] [+]   code cave: round-trip OK
+[00:04:10.640] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:04:10.640] [+]   data cave addr = 0x2260000
+[00:04:10.642] [*]   data cave: validating @ 0x2260000
+[00:04:10.642] [+]   data cave: VA range OK
+[00:04:10.643] [+]   data cave: round-trip OK
+[00:04:10.643] [*] step 6/9: zero the data cave (536 bytes)
+[00:04:10.645] [+]   data cave zeroed
+[00:04:10.646] [*] step 7/9: build + write + verify shellcode
+[00:04:10.647] [*]   shellcode size = 73 bytes
+[00:04:10.648] [+]   shellcode verified in cave
+[00:04:10.648] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:04:10.650] [+]   code cave now RX (was RW)
+[00:04:10.650] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:04:10.652] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:04:10.652] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:04:10.653] [+]   PTE remap install OK — original .text PFN untouched
+[00:04:10.653] [+]   FF 25 patch verified at target
+[00:04:10.655] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:04:12.982] [*] setup_hook: already installed, skipping
+[00:04:20.670] [*] transient hook: EMERGENCY tear-down (age=10013ms, seen=0) — uninstalling
+[00:04:20.670] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:04:20.671] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:04:20.671] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:04:20.673] [+]   prologue restored byte-for-byte
+[00:04:20.673] [*] step 2/3: settle (500ms) before freeing caves
+[00:04:21.187] [*] step 3/3: free caves via CMD_FREE
+[00:04:21.187] [+]   code cave freed @ 0xA10000
+[00:04:21.189] [+]   data cave freed @ 0x2260000
+[00:04:21.190] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:04:35.369] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:04:35.369] [*] step 1/9: resolve hook target address
+[00:04:35.371] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:04:35.371] [+]   hook target = 0x7FF6CA513410
+[00:04:35.372] [*] step 2/9: check target isn't already patched
+[00:04:35.372] [*]   first bytes: 53 57
+[00:04:35.374] [*] step 3/9: read + validate 19-byte prologue
+[00:04:35.374] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:04:35.375] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:04:35.375] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:04:35.377] [+]   code cave addr = 0xA10000
+[00:04:35.378] [*]   code cave: validating @ 0xA10000
+[00:04:35.379] [+]   code cave: VA range OK
+[00:04:35.379] [+]   code cave: round-trip OK
+[00:04:35.379] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:04:35.381] [+]   data cave addr = 0x2260000
+[00:04:35.381] [*]   data cave: validating @ 0x2260000
+[00:04:35.382] [+]   data cave: VA range OK
+[00:04:35.382] [+]   data cave: round-trip OK
+[00:04:35.385] [*] step 6/9: zero the data cave (536 bytes)
+[00:04:35.385] [+]   data cave zeroed
+[00:04:35.385] [*] step 7/9: build + write + verify shellcode
+[00:04:35.387] [*]   shellcode size = 80 bytes
+[00:04:35.388] [+]   shellcode verified in cave
+[00:04:35.388] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:04:35.389] [+]   code cave now RX (was RW)
+[00:04:35.390] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:04:35.390] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:04:35.391] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:04:35.393] [+]   PTE remap install OK — original .text PFN untouched
+[00:04:35.393] [+]   FF 25 patch verified at target
+[00:04:35.394] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:04:35.702] [*] setup_hook: already installed, skipping
+[00:04:45.409] [*] transient hook: EMERGENCY tear-down (age=10014ms, seen=0) — uninstalling
+[00:04:45.409] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:04:45.409] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:04:45.411] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:04:45.412] [+]   prologue restored byte-for-byte
+[00:04:45.412] [*] step 2/3: settle (500ms) before freeing caves
+[00:04:45.921] [*] step 3/3: free caves via CMD_FREE
+[00:04:45.922] [+]   code cave freed @ 0xA10000
+[00:04:45.922] [+]   data cave freed @ 0x2260000
+[00:04:45.923] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:05:17.531] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:05:17.531] [*] step 1/9: resolve hook target address
+[00:05:17.533] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:05:17.533] [+]   hook target = 0x7FF6CA513410
+[00:05:17.535] [*] step 2/9: check target isn't already patched
+[00:05:17.535] [*]   first bytes: 53 57
+[00:05:17.536] [*] step 3/9: read + validate 19-byte prologue
+[00:05:17.537] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:05:17.538] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:05:17.539] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:05:17.539] [+]   code cave addr = 0xA10000
+[00:05:17.540] [*]   code cave: validating @ 0xA10000
+[00:05:17.540] [+]   code cave: VA range OK
+[00:05:17.542] [+]   code cave: round-trip OK
+[00:05:17.542] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:05:17.543] [+]   data cave addr = 0x2260000
+[00:05:17.545] [*]   data cave: validating @ 0x2260000
+[00:05:17.545] [+]   data cave: VA range OK
+[00:05:17.546] [+]   data cave: round-trip OK
+[00:05:17.547] [*] step 6/9: zero the data cave (536 bytes)
+[00:05:17.548] [+]   data cave zeroed
+[00:05:17.549] [*] step 7/9: build + write + verify shellcode
+[00:05:17.549] [*]   shellcode size = 72 bytes
+[00:05:17.550] [+]   shellcode verified in cave
+[00:05:17.550] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:05:17.552] [+]   code cave now RX (was RW)
+[00:05:17.553] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:05:17.553] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:05:17.555] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:05:17.555] [+]   PTE remap install OK — original .text PFN untouched
+[00:05:17.556] [+]   FF 25 patch verified at target
+[00:05:17.557] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:05:27.562] [*] transient hook: EMERGENCY tear-down (age=10004ms, seen=0) — uninstalling
+[00:05:27.563] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:05:27.564] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:05:27.564] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:05:27.566] [+]   prologue restored byte-for-byte
+[00:05:27.567] [*] step 2/3: settle (500ms) before freeing caves
+[00:05:28.076] [*] step 3/3: free caves via CMD_FREE
+[00:05:28.076] [+]   code cave freed @ 0xA10000
+[00:05:28.078] [+]   data cave freed @ 0x2260000
+[00:05:28.079] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:05:30.363] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:05:30.363] [*] step 1/9: resolve hook target address
+[00:05:30.364] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:05:30.364] [+]   hook target = 0x7FF6CA513410
+[00:05:30.366] [*] step 2/9: check target isn't already patched
+[00:05:30.367] [*]   first bytes: 53 57
+[00:05:30.368] [*] step 3/9: read + validate 19-byte prologue
+[00:05:30.368] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:05:30.369] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:05:30.369] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:05:30.371] [+]   code cave addr = 0xA10000
+[00:05:30.371] [*]   code cave: validating @ 0xA10000
+[00:05:30.372] [+]   code cave: VA range OK
+[00:05:30.372] [+]   code cave: round-trip OK
+[00:05:30.374] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:05:30.374] [+]   data cave addr = 0x2260000
+[00:05:30.375] [*]   data cave: validating @ 0x2260000
+[00:05:30.376] [+]   data cave: VA range OK
+[00:05:30.377] [+]   data cave: round-trip OK
+[00:05:30.378] [*] step 6/9: zero the data cave (536 bytes)
+[00:05:30.378] [+]   data cave zeroed
+[00:05:30.379] [*] step 7/9: build + write + verify shellcode
+[00:05:30.379] [*]   shellcode size = 83 bytes
+[00:05:30.381] [+]   shellcode verified in cave
+[00:05:30.381] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:05:30.382] [+]   code cave now RX (was RW)
+[00:05:30.382] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:05:30.384] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:05:30.384] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:05:30.385] [+]   PTE remap install OK — original .text PFN untouched
+[00:05:30.386] [+]   FF 25 patch verified at target
+[00:05:30.387] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:05:40.394] [*] transient hook: EMERGENCY tear-down (age=10005ms, seen=0) — uninstalling
+[00:05:40.394] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:05:40.396] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:05:40.397] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:05:40.398] [+]   prologue restored byte-for-byte
+[00:05:40.398] [*] step 2/3: settle (500ms) before freeing caves
+[00:05:40.901] [*] step 3/3: free caves via CMD_FREE
+[00:05:40.901] [+]   code cave freed @ 0xA10000
+[00:05:40.902] [+]   data cave freed @ 0x2260000
+[00:05:40.904] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:07:07.562] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:07:07.562] [*] step 1/9: resolve hook target address
+[00:07:07.563] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:07:07.564] [+]   hook target = 0x7FF6CA513410
+[00:07:07.564] [*] step 2/9: check target isn't already patched
+[00:07:07.566] [*]   first bytes: 53 57
+[00:07:07.566] [*] step 3/9: read + validate 19-byte prologue
+[00:07:07.567] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:07:07.569] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:07:07.569] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:07:07.570] [+]   code cave addr = 0xA10000
+[00:07:07.570] [*]   code cave: validating @ 0xA10000
+[00:07:07.572] [+]   code cave: VA range OK
+[00:07:07.573] [+]   code cave: round-trip OK
+[00:07:07.573] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:07:07.575] [+]   data cave addr = 0x2260000
+[00:07:07.575] [*]   data cave: validating @ 0x2260000
+[00:07:07.576] [+]   data cave: VA range OK
+[00:07:07.578] [+]   data cave: round-trip OK
+[00:07:07.579] [*] step 6/9: zero the data cave (536 bytes)
+[00:07:07.579] [+]   data cave zeroed
+[00:07:07.581] [*] step 7/9: build + write + verify shellcode
+[00:07:07.582] [*]   shellcode size = 77 bytes
+[00:07:07.582] [+]   shellcode verified in cave
+[00:07:07.582] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:07:07.584] [+]   code cave now RX (was RW)
+[00:07:07.585] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:07:07.586] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:07:07.586] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:07:07.588] [+]   PTE remap install OK — original .text PFN untouched
+[00:07:07.588] [+]   FF 25 patch verified at target
+[00:07:07.589] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:07:10.083] [*] setup_hook: already installed, skipping
+[00:07:17.597] [*] transient hook: EMERGENCY tear-down (age=10006ms, seen=0) — uninstalling
+[00:07:17.598] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:07:17.598] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:07:17.598] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:07:17.600] [+]   prologue restored byte-for-byte
+[00:07:17.600] [*] step 2/3: settle (500ms) before freeing caves
+[00:07:18.113] [*] step 3/3: free caves via CMD_FREE
+[00:07:18.113] [+]   code cave freed @ 0xA10000
+[00:07:18.115] [+]   data cave freed @ 0x2260000
+[00:07:18.115] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:07:33.741] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:07:33.741] [*] step 1/9: resolve hook target address
+[00:07:33.743] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:07:33.743] [+]   hook target = 0x7FF6CA513410
+[00:07:33.744] [*] step 2/9: check target isn't already patched
+[00:07:33.744] [*]   first bytes: 53 57
+[00:07:33.746] [*] step 3/9: read + validate 19-byte prologue
+[00:07:33.747] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:07:33.748] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:07:33.748] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:07:33.750] [+]   code cave addr = 0xA10000
+[00:07:33.750] [*]   code cave: validating @ 0xA10000
+[00:07:33.751] [+]   code cave: VA range OK
+[00:07:33.751] [+]   code cave: round-trip OK
+[00:07:33.753] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:07:33.753] [+]   data cave addr = 0x2260000
+[00:07:33.754] [*]   data cave: validating @ 0x2260000
+[00:07:33.754] [+]   data cave: VA range OK
+[00:07:33.756] [+]   data cave: round-trip OK
+[00:07:33.756] [*] step 6/9: zero the data cave (536 bytes)
+[00:07:33.757] [+]   data cave zeroed
+[00:07:33.758] [*] step 7/9: build + write + verify shellcode
+[00:07:33.758] [*]   shellcode size = 82 bytes
+[00:07:33.760] [+]   shellcode verified in cave
+[00:07:33.760] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:07:33.761] [+]   code cave now RX (was RW)
+[00:07:33.761] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:07:33.763] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:07:33.763] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:07:33.764] [+]   PTE remap install OK — original .text PFN untouched
+[00:07:33.764] [+]   FF 25 patch verified at target
+[00:07:33.766] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:07:43.769] [*] transient hook: EMERGENCY tear-down (age=10003ms, seen=0) — uninstalling
+[00:07:43.770] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:07:43.771] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:07:43.771] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:07:43.772] [+]   prologue restored byte-for-byte
+[00:07:43.772] [*] step 2/3: settle (500ms) before freeing caves
+[00:07:44.285] [*] step 3/3: free caves via CMD_FREE
+[00:07:44.285] [+]   code cave freed @ 0xA10000
+[00:07:44.287] [+]   data cave freed @ 0x2260000
+[00:07:44.288] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:08:56.510] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:08:56.510] [*] step 1/9: resolve hook target address
+[00:08:56.511] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:08:56.513] [+]   hook target = 0x7FF6CA513410
+[00:08:56.513] [*] step 2/9: check target isn't already patched
+[00:08:56.514] [*]   first bytes: 53 57
+[00:08:56.514] [*] step 3/9: read + validate 19-byte prologue
+[00:08:56.516] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:08:56.516] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:08:56.517] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:08:56.518] [+]   code cave addr = 0xA10000
+[00:08:56.518] [*]   code cave: validating @ 0xA10000
+[00:08:56.518] [+]   code cave: VA range OK
+[00:08:56.520] [+]   code cave: round-trip OK
+[00:08:56.520] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:08:56.521] [+]   data cave addr = 0x2260000
+[00:08:56.523] [*]   data cave: validating @ 0x2260000
+[00:08:56.523] [+]   data cave: VA range OK
+[00:08:56.524] [+]   data cave: round-trip OK
+[00:08:56.524] [*] step 6/9: zero the data cave (536 bytes)
+[00:08:56.526] [+]   data cave zeroed
+[00:08:56.526] [*] step 7/9: build + write + verify shellcode
+[00:08:56.527] [*]   shellcode size = 76 bytes
+[00:08:56.529] [+]   shellcode verified in cave
+[00:08:56.529] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:08:56.530] [+]   code cave now RX (was RW)
+[00:08:56.530] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:08:56.532] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:08:56.532] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:08:56.533] [+]   PTE remap install OK — original .text PFN untouched
+[00:08:56.533] [+]   FF 25 patch verified at target
+[00:08:56.535] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:08:59.102] [*] setup_hook: already installed, skipping
+[00:08:59.608] [*] setup_hook: already installed, skipping
+[00:09:00.492] [*] setup_hook: already installed, skipping
+[00:09:01.688] [*] setup_hook: already installed, skipping
+[00:09:03.132] [*] setup_hook: already installed, skipping
+[00:09:06.537] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[00:09:06.537] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:09:06.537] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:09:06.539] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:09:06.539] [+]   prologue restored byte-for-byte
+[00:09:06.540] [*] step 2/3: settle (500ms) before freeing caves
+[00:09:07.051] [*] step 3/3: free caves via CMD_FREE
+[00:09:07.051] [+]   code cave freed @ 0xA10000
+[00:09:07.053] [+]   data cave freed @ 0x2260000
+[00:09:07.053] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:09:21.181] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:09:21.181] [*] step 1/9: resolve hook target address
+[00:09:21.183] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:09:21.183] [+]   hook target = 0x7FF6CA513410
+[00:09:21.184] [*] step 2/9: check target isn't already patched
+[00:09:21.184] [*]   first bytes: 53 57
+[00:09:21.186] [*] step 3/9: read + validate 19-byte prologue
+[00:09:21.186] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:09:21.187] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:09:21.187] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:09:21.189] [+]   code cave addr = 0xA10000
+[00:09:21.189] [*]   code cave: validating @ 0xA10000
+[00:09:21.190] [+]   code cave: VA range OK
+[00:09:21.192] [+]   code cave: round-trip OK
+[00:09:21.192] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:09:21.193] [+]   data cave addr = 0x2260000
+[00:09:21.193] [*]   data cave: validating @ 0x2260000
+[00:09:21.195] [+]   data cave: VA range OK
+[00:09:21.196] [+]   data cave: round-trip OK
+[00:09:21.196] [*] step 6/9: zero the data cave (536 bytes)
+[00:09:21.197] [+]   data cave zeroed
+[00:09:21.198] [*] step 7/9: build + write + verify shellcode
+[00:09:21.198] [*]   shellcode size = 83 bytes
+[00:09:21.199] [+]   shellcode verified in cave
+[00:09:21.199] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:09:21.201] [+]   code cave now RX (was RW)
+[00:09:21.202] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:09:21.202] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:09:21.204] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:09:21.204] [+]   PTE remap install OK — original .text PFN untouched
+[00:09:21.205] [+]   FF 25 patch verified at target
+[00:09:21.206] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:09:23.189] [*] setup_hook: already installed, skipping
+[00:09:31.219] [*] transient hook: EMERGENCY tear-down (age=10012ms, seen=0) — uninstalling
+[00:09:31.219] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:09:31.221] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:09:31.221] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:09:31.222] [+]   prologue restored byte-for-byte
+[00:09:31.222] [*] step 2/3: settle (500ms) before freeing caves
+[00:09:31.737] [*] step 3/3: free caves via CMD_FREE
+[00:09:31.737] [+]   code cave freed @ 0xA10000
+[00:09:31.739] [+]   data cave freed @ 0x2260000
+[00:09:31.739] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:09:31.741] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:09:31.742] [*] step 1/9: resolve hook target address
+[00:09:31.742] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:09:31.744] [+]   hook target = 0x7FF6CA513410
+[00:09:31.744] [*] step 2/9: check target isn't already patched
+[00:09:31.745] [*]   first bytes: 53 57
+[00:09:31.746] [*] step 3/9: read + validate 19-byte prologue
+[00:09:31.746] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:09:31.748] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:09:31.748] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:09:31.749] [+]   code cave addr = 0xA10000
+[00:09:31.749] [*]   code cave: validating @ 0xA10000
+[00:09:31.751] [+]   code cave: VA range OK
+[00:09:31.751] [+]   code cave: round-trip OK
+[00:09:31.752] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:09:31.752] [+]   data cave addr = 0x2260000
+[00:09:31.754] [*]   data cave: validating @ 0x2260000
+[00:09:31.754] [+]   data cave: VA range OK
+[00:09:31.755] [+]   data cave: round-trip OK
+[00:09:31.755] [*] step 6/9: zero the data cave (536 bytes)
+[00:09:31.757] [+]   data cave zeroed
+[00:09:31.758] [*] step 7/9: build + write + verify shellcode
+[00:09:31.758] [*]   shellcode size = 77 bytes
+[00:09:31.758] [+]   shellcode verified in cave
+[00:09:31.760] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:09:31.761] [+]   code cave now RX (was RW)
+[00:09:31.761] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:09:31.761] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:09:31.763] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:09:31.764] [+]   PTE remap install OK — original .text PFN untouched
+[00:09:31.764] [+]   FF 25 patch verified at target
+[00:09:31.766] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:09:32.006] [*] setup_hook: already installed, skipping
+[00:09:41.781] [*] transient hook: EMERGENCY tear-down (age=10014ms, seen=0) — uninstalling
+[00:09:41.781] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:09:41.782] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:09:41.782] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:09:41.784] [+]   prologue restored byte-for-byte
+[00:09:41.785] [*] step 2/3: settle (500ms) before freeing caves
+[00:09:42.300] [*] step 3/3: free caves via CMD_FREE
+[00:09:42.300] [+]   code cave freed @ 0xA10000
+[00:09:42.302] [+]   data cave freed @ 0x2260000
+[00:09:42.302] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:10:38.195] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:10:38.195] [*] step 1/9: resolve hook target address
+[00:10:38.197] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:10:38.198] [+]   hook target = 0x7FF6CA513410
+[00:10:38.198] [*] step 2/9: check target isn't already patched
+[00:10:38.198] [*]   first bytes: 53 57
+[00:10:38.200] [*] step 3/9: read + validate 19-byte prologue
+[00:10:38.200] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:10:38.201] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:10:38.202] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:10:38.203] [+]   code cave addr = 0xA10000
+[00:10:38.203] [*]   code cave: validating @ 0xA10000
+[00:10:38.204] [+]   code cave: VA range OK
+[00:10:38.206] [+]   code cave: round-trip OK
+[00:10:38.206] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:10:38.207] [+]   data cave addr = 0x2260000
+[00:10:38.208] [*]   data cave: validating @ 0x2260000
+[00:10:38.208] [+]   data cave: VA range OK
+[00:10:38.210] [+]   data cave: round-trip OK
+[00:10:38.210] [*] step 6/9: zero the data cave (536 bytes)
+[00:10:38.211] [+]   data cave zeroed
+[00:10:38.212] [*] step 7/9: build + write + verify shellcode
+[00:10:38.213] [*]   shellcode size = 76 bytes
+[00:10:38.213] [+]   shellcode verified in cave
+[00:10:38.214] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:10:38.214] [+]   code cave now RX (was RW)
+[00:10:38.216] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:10:38.216] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:10:38.218] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:10:38.218] [+]   PTE remap install OK — original .text PFN untouched
+[00:10:38.218] [+]   FF 25 patch verified at target
+[00:10:38.220] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:10:40.202] [*] setup_hook: already installed, skipping
+[00:10:48.232] [*] transient hook: EMERGENCY tear-down (age=10010ms, seen=0) — uninstalling
+[00:10:48.233] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:10:48.233] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:10:48.234] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:10:48.236] [+]   prologue restored byte-for-byte
+[00:10:48.236] [*] step 2/3: settle (500ms) before freeing caves
+[00:10:48.747] [*] step 3/3: free caves via CMD_FREE
+[00:10:48.748] [+]   code cave freed @ 0xA10000
+[00:10:48.748] [+]   data cave freed @ 0x2260000
+[00:10:48.749] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:11:01.643] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:11:01.643] [*] step 1/9: resolve hook target address
+[00:11:01.645] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:11:01.645] [+]   hook target = 0x7FF6CA513410
+[00:11:01.646] [*] step 2/9: check target isn't already patched
+[00:11:01.647] [*]   first bytes: 53 57
+[00:11:01.648] [*] step 3/9: read + validate 19-byte prologue
+[00:11:01.648] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:11:01.649] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:11:01.649] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:11:01.651] [+]   code cave addr = 0xA10000
+[00:11:01.652] [*]   code cave: validating @ 0xA10000
+[00:11:01.652] [+]   code cave: VA range OK
+[00:11:01.654] [+]   code cave: round-trip OK
+[00:11:01.654] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:11:01.655] [+]   data cave addr = 0x2260000
+[00:11:01.656] [*]   data cave: validating @ 0x2260000
+[00:11:01.657] [+]   data cave: VA range OK
+[00:11:01.657] [+]   data cave: round-trip OK
+[00:11:01.659] [*] step 6/9: zero the data cave (536 bytes)
+[00:11:01.659] [+]   data cave zeroed
+[00:11:01.661] [*] step 7/9: build + write + verify shellcode
+[00:11:01.661] [*]   shellcode size = 78 bytes
+[00:11:01.662] [+]   shellcode verified in cave
+[00:11:01.662] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:11:01.664] [+]   code cave now RX (was RW)
+[00:11:01.664] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:11:01.665] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:11:01.665] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:11:01.667] [+]   PTE remap install OK — original .text PFN untouched
+[00:11:01.668] [+]   FF 25 patch verified at target
+[00:11:01.668] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:11:02.226] [*] setup_hook: already installed, skipping
+[00:11:03.598] [*] setup_hook: already installed, skipping
+[00:11:10.731] [*] setup_hook: already installed, skipping
+[00:11:11.674] [*] transient hook: EMERGENCY tear-down (age=10005ms, seen=0) — uninstalling
+[00:11:11.674] [*] setup_hook: already installed, skipping
+[00:11:11.676] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:11:11.676] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:11:11.677] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:11:11.677] [+]   prologue restored byte-for-byte
+[00:11:11.679] [*] step 2/3: settle (500ms) before freeing caves
+[00:11:12.190] [*] step 3/3: free caves via CMD_FREE
+[00:11:12.191] [+]   code cave freed @ 0xA10000
+[00:11:12.191] [+]   data cave freed @ 0x2260000
+[00:11:12.192] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:15:14.800] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:15:14.801] [*] step 1/9: resolve hook target address
+[00:15:14.801] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:15:14.803] [+]   hook target = 0x7FF6CA513410
+[00:15:14.803] [*] step 2/9: check target isn't already patched
+[00:15:14.804] [*]   first bytes: 53 57
+[00:15:14.804] [*] step 3/9: read + validate 19-byte prologue
+[00:15:14.806] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:15:14.806] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:15:14.807] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:15:14.807] [+]   code cave addr = 0xA10000
+[00:15:14.809] [*]   code cave: validating @ 0xA10000
+[00:15:14.810] [+]   code cave: VA range OK
+[00:15:14.810] [+]   code cave: round-trip OK
+[00:15:14.811] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:15:14.811] [+]   data cave addr = 0x2260000
+[00:15:14.813] [*]   data cave: validating @ 0x2260000
+[00:15:14.813] [+]   data cave: VA range OK
+[00:15:14.815] [+]   data cave: round-trip OK
+[00:15:14.815] [*] step 6/9: zero the data cave (536 bytes)
+[00:15:14.816] [+]   data cave zeroed
+[00:15:14.817] [*] step 7/9: build + write + verify shellcode
+[00:15:14.817] [*]   shellcode size = 78 bytes
+[00:15:14.819] [+]   shellcode verified in cave
+[00:15:14.819] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:15:14.820] [+]   code cave now RX (was RW)
+[00:15:14.820] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:15:14.822] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:15:14.822] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:15:14.823] [+]   PTE remap install OK — original .text PFN untouched
+[00:15:14.825] [+]   FF 25 patch verified at target
+[00:15:14.825] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:15:15.003] [*] setup_hook: already installed, skipping
+[00:15:18.379] [*] setup_hook: already installed, skipping
+[00:15:20.389] [*] setup_hook: already installed, skipping
+[00:15:24.827] [*] transient hook: EMERGENCY tear-down (age=10001ms, seen=0) — uninstalling
+[00:15:24.828] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:15:24.828] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:15:24.830] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:15:24.830] [+]   prologue restored byte-for-byte
+[00:15:24.831] [*] step 2/3: settle (500ms) before freeing caves
+[00:15:25.339] [*] step 3/3: free caves via CMD_FREE
+[00:15:25.340] [+]   code cave freed @ 0xA10000
+[00:15:25.341] [+]   data cave freed @ 0x2260000
+[00:15:25.341] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:17:18.229] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:17:18.229] [*] step 1/9: resolve hook target address
+[00:17:18.231] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:17:18.231] [+]   hook target = 0x7FF6CA513410
+[00:17:18.233] [*] step 2/9: check target isn't already patched
+[00:17:18.233] [*]   first bytes: 53 57
+[00:17:18.234] [*] step 3/9: read + validate 19-byte prologue
+[00:17:18.234] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:17:18.236] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:17:18.237] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:17:18.238] [+]   code cave addr = 0xA10000
+[00:17:18.238] [*]   code cave: validating @ 0xA10000
+[00:17:18.240] [+]   code cave: VA range OK
+[00:17:18.240] [+]   code cave: round-trip OK
+[00:17:18.241] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:17:18.241] [+]   data cave addr = 0x2260000
+[00:17:18.243] [*]   data cave: validating @ 0x2260000
+[00:17:18.243] [+]   data cave: VA range OK
+[00:17:18.244] [+]   data cave: round-trip OK
+[00:17:18.244] [*] step 6/9: zero the data cave (536 bytes)
+[00:17:18.246] [+]   data cave zeroed
+[00:17:18.246] [*] step 7/9: build + write + verify shellcode
+[00:17:18.247] [*]   shellcode size = 78 bytes
+[00:17:18.247] [+]   shellcode verified in cave
+[00:17:18.249] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:17:18.249] [+]   code cave now RX (was RW)
+[00:17:18.250] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:17:18.252] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:17:18.252] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:17:18.253] [+]   PTE remap install OK — original .text PFN untouched
+[00:17:18.253] [+]   FF 25 patch verified at target
+[00:17:18.255] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:17:18.998] [*] setup_hook: already installed, skipping
+[00:17:19.562] [*] setup_hook: already installed, skipping
+[00:17:28.271] [*] transient hook: EMERGENCY tear-down (age=10015ms, seen=0) — uninstalling
+[00:17:28.271] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:17:28.272] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:17:28.272] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:17:28.274] [+]   prologue restored byte-for-byte
+[00:17:28.274] [*] step 2/3: settle (500ms) before freeing caves
+[00:17:28.786] [*] step 3/3: free caves via CMD_FREE
+[00:17:28.786] [+]   code cave freed @ 0xA10000
+[00:17:28.788] [+]   data cave freed @ 0x2260000
+[00:17:28.788] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:17:29.509] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:17:29.509] [*] step 1/9: resolve hook target address
+[00:17:29.511] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:17:29.512] [+]   hook target = 0x7FF6CA513410
+[00:17:29.512] [*] step 2/9: check target isn't already patched
+[00:17:29.514] [*]   first bytes: 53 57
+[00:17:29.514] [*] step 3/9: read + validate 19-byte prologue
+[00:17:29.515] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:17:29.515] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:17:29.517] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:17:29.518] [+]   code cave addr = 0xA10000
+[00:17:29.518] [*]   code cave: validating @ 0xA10000
+[00:17:29.518] [+]   code cave: VA range OK
+[00:17:29.520] [+]   code cave: round-trip OK
+[00:17:29.520] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:17:29.521] [+]   data cave addr = 0x2260000
+[00:17:29.523] [*]   data cave: validating @ 0x2260000
+[00:17:29.523] [+]   data cave: VA range OK
+[00:17:29.524] [+]   data cave: round-trip OK
+[00:17:29.524] [*] step 6/9: zero the data cave (536 bytes)
+[00:17:29.526] [+]   data cave zeroed
+[00:17:29.526] [*] step 7/9: build + write + verify shellcode
+[00:17:29.527] [*]   shellcode size = 74 bytes
+[00:17:29.528] [+]   shellcode verified in cave
+[00:17:29.528] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:17:29.530] [+]   code cave now RX (was RW)
+[00:17:29.530] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:17:29.531] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:17:29.531] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:17:29.533] [+]   PTE remap install OK — original .text PFN untouched
+[00:17:29.534] [+]   FF 25 patch verified at target
+[00:17:29.534] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:17:39.540] [*] transient hook: EMERGENCY tear-down (age=10004ms, seen=0) — uninstalling
+[00:17:39.540] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:17:39.541] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:17:39.541] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:17:39.543] [+]   prologue restored byte-for-byte
+[00:17:39.544] [*] step 2/3: settle (500ms) before freeing caves
+[00:17:40.052] [*] step 3/3: free caves via CMD_FREE
+[00:17:40.053] [+]   code cave freed @ 0xA10000
+[00:17:40.053] [+]   data cave freed @ 0x2260000
+[00:17:40.054] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:18:01.718] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:18:01.718] [*] step 1/9: resolve hook target address
+[00:18:01.720] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:18:01.720] [+]   hook target = 0x7FF6CA513410
+[00:18:01.721] [*] step 2/9: check target isn't already patched
+[00:18:01.721] [*]   first bytes: 53 57
+[00:18:01.723] [*] step 3/9: read + validate 19-byte prologue
+[00:18:01.723] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:18:01.724] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:18:01.724] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:18:01.726] [+]   code cave addr = 0xA10000
+[00:18:01.726] [*]   code cave: validating @ 0xA10000
+[00:18:01.727] [+]   code cave: VA range OK
+[00:18:01.728] [+]   code cave: round-trip OK
+[00:18:01.728] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:18:01.730] [+]   data cave addr = 0x2260000
+[00:18:01.730] [*]   data cave: validating @ 0x2260000
+[00:18:01.731] [+]   data cave: VA range OK
+[00:18:01.732] [+]   data cave: round-trip OK
+[00:18:01.733] [*] step 6/9: zero the data cave (536 bytes)
+[00:18:01.733] [+]   data cave zeroed
+[00:18:01.734] [*] step 7/9: build + write + verify shellcode
+[00:18:01.734] [*]   shellcode size = 85 bytes
+[00:18:01.736] [+]   shellcode verified in cave
+[00:18:01.736] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:18:01.738] [+]   code cave now RX (was RW)
+[00:18:01.738] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:18:01.738] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:18:01.740] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:18:01.740] [+]   PTE remap install OK — original .text PFN untouched
+[00:18:01.741] [+]   FF 25 patch verified at target
+[00:18:01.742] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:18:11.752] [*] transient hook: EMERGENCY tear-down (age=10008ms, seen=0) — uninstalling
+[00:18:11.752] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:18:11.752] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:18:11.754] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:18:11.756] [+]   prologue restored byte-for-byte
+[00:18:11.756] [*] step 2/3: settle (500ms) before freeing caves
+[00:18:12.262] [*] step 3/3: free caves via CMD_FREE
+[00:18:12.262] [+]   code cave freed @ 0xA10000
+[00:18:12.264] [+]   data cave freed @ 0x2260000
+[00:18:12.264] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:23:42.637] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:23:42.639] [*] step 1/9: resolve hook target address
+[00:23:42.639] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:23:42.640] [+]   hook target = 0x7FF6CA513410
+[00:23:42.640] [*] step 2/9: check target isn't already patched
+[00:23:42.642] [*]   first bytes: 53 57
+[00:23:42.642] [*] step 3/9: read + validate 19-byte prologue
+[00:23:42.643] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:23:42.645] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:23:42.645] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:23:42.646] [+]   code cave addr = 0xA10000
+[00:23:42.647] [*]   code cave: validating @ 0xA10000
+[00:23:42.647] [+]   code cave: VA range OK
+[00:23:42.647] [+]   code cave: round-trip OK
+[00:23:42.649] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:23:42.650] [+]   data cave addr = 0x2260000
+[00:23:42.650] [*]   data cave: validating @ 0x2260000
+[00:23:42.652] [+]   data cave: VA range OK
+[00:23:42.652] [+]   data cave: round-trip OK
+[00:23:42.653] [*] step 6/9: zero the data cave (536 bytes)
+[00:23:42.655] [+]   data cave zeroed
+[00:23:42.655] [*] step 7/9: build + write + verify shellcode
+[00:23:42.656] [*]   shellcode size = 75 bytes
+[00:23:42.656] [+]   shellcode verified in cave
+[00:23:42.658] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:23:42.658] [+]   code cave now RX (was RW)
+[00:23:42.660] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:23:42.660] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:23:42.661] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:23:42.663] [+]   PTE remap install OK — original .text PFN untouched
+[00:23:42.664] [+]   FF 25 patch verified at target
+[00:23:42.664] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:23:42.977] [*] setup_hook: already installed, skipping
+[00:23:43.779] [*] setup_hook: already installed, skipping
+[00:23:52.677] [*] transient hook: EMERGENCY tear-down (age=10012ms, seen=0) — uninstalling
+[00:23:52.678] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:23:52.678] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:23:52.679] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:23:52.679] [+]   prologue restored byte-for-byte
+[00:23:52.681] [*] step 2/3: settle (500ms) before freeing caves
+[00:23:53.186] [*] step 3/3: free caves via CMD_FREE
+[00:23:53.186] [+]   code cave freed @ 0xA10000
+[00:23:53.187] [+]   data cave freed @ 0x2260000
+[00:23:53.188] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:25:33.202] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:25:33.202] [*] step 1/9: resolve hook target address
+[00:25:33.204] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:25:33.204] [+]   hook target = 0x7FF6CA513410
+[00:25:33.205] [*] step 2/9: check target isn't already patched
+[00:25:33.207] [*]   first bytes: 53 57
+[00:25:33.207] [*] step 3/9: read + validate 19-byte prologue
+[00:25:33.208] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:25:33.209] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:25:33.209] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:25:33.211] [+]   code cave addr = 0xA10000
+[00:25:33.212] [*]   code cave: validating @ 0xA10000
+[00:25:33.213] [+]   code cave: VA range OK
+[00:25:33.213] [+]   code cave: round-trip OK
+[00:25:33.213] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:25:33.215] [+]   data cave addr = 0x2260000
+[00:25:33.217] [*]   data cave: validating @ 0x2260000
+[00:25:33.218] [+]   data cave: VA range OK
+[00:25:33.218] [+]   data cave: round-trip OK
+[00:25:33.218] [*] step 6/9: zero the data cave (536 bytes)
+[00:25:33.220] [+]   data cave zeroed
+[00:25:33.220] [*] step 7/9: build + write + verify shellcode
+[00:25:33.222] [*]   shellcode size = 80 bytes
+[00:25:33.222] [+]   shellcode verified in cave
+[00:25:33.223] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:25:33.224] [+]   code cave now RX (was RW)
+[00:25:33.224] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:25:33.225] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:25:33.227] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:25:33.227] [+]   PTE remap install OK — original .text PFN untouched
+[00:25:33.228] [+]   FF 25 patch verified at target
+[00:25:33.229] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:25:36.510] [*] setup_hook: already installed, skipping
+[00:25:37.192] [*] setup_hook: already installed, skipping
+[00:25:38.247] [*] setup_hook: already installed, skipping
+[00:25:42.607] [*] setup_hook: already installed, skipping
+[00:25:43.241] [*] transient hook: EMERGENCY tear-down (age=10011ms, seen=0) — uninstalling
+[00:25:43.241] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:25:43.242] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:25:43.243] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:25:43.243] [+]   prologue restored byte-for-byte
+[00:25:43.245] [*] step 2/3: settle (500ms) before freeing caves
+[00:25:43.747] [*] step 3/3: free caves via CMD_FREE
+[00:25:43.748] [+]   code cave freed @ 0xA10000
+[00:25:43.749] [+]   data cave freed @ 0x2260000
+[00:25:43.749] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────
+[00:25:43.809] [*] ─── ENTITY HOOK INSTALL ──────────────────────────────────
+[00:25:43.809] [*] step 1/9: resolve hook target address
+[00:25:43.811] [+]   module = 0x7FF6C57F0000 size = 0x1D3F4000
+[00:25:43.812] [+]   hook target = 0x7FF6CA513410
+[00:25:43.812] [*] step 2/9: check target isn't already patched
+[00:25:43.813] [*]   first bytes: 53 57
+[00:25:43.813] [*] step 3/9: read + validate 19-byte prologue
+[00:25:43.815] [*]   stolen: 53 57 55 41 56 56 41 55 41 57 41 54 48 81 EC 38 01 00 00
+[00:25:43.815] [+]   prologue verified relocatable — 19 bytes on instruction boundary
+[00:25:43.816] [*] step 4/9: allocate code cave via CMD_ALLOC (4 KB, RW initial)
+[00:25:43.818] [+]   code cave addr = 0xA10000
+[00:25:43.818] [*]   code cave: validating @ 0xA10000
+[00:25:43.819] [+]   code cave: VA range OK
+[00:25:43.819] [+]   code cave: round-trip OK
+[00:25:43.821] [*] step 5/9: allocate data cave via CMD_ALLOC (4 KB, RW)
+[00:25:43.821] [+]   data cave addr = 0x2260000
+[00:25:43.822] [*]   data cave: validating @ 0x2260000
+[00:25:43.823] [+]   data cave: VA range OK
+[00:25:43.824] [+]   data cave: round-trip OK
+[00:25:43.825] [*] step 6/9: zero the data cave (536 bytes)
+[00:25:43.825] [+]   data cave zeroed
+[00:25:43.827] [*] step 7/9: build + write + verify shellcode
+[00:25:43.828] [*]   shellcode size = 76 bytes
+[00:25:43.828] [+]   shellcode verified in cave
+[00:25:43.830] [*] step 7b/9: lock code cave to PAGE_EXECUTE_READ
+[00:25:43.830] [+]   code cave now RX (was RW)
+[00:25:43.831] [*] step 8/9: (skipped) MDL write path doesn't need RWX on .text
+[00:25:43.831] [*] step 9/9: installing FF 25 patch via PTE remap → 0x7FF6CA513410
+[00:25:43.833] [*]   patch bytes: FF 25 00 00 00 00 00 00 A1 00 00 00 00 00
+[00:25:43.834] [+]   PTE remap install OK — original .text PFN untouched
+[00:25:43.834] [+]   FF 25 patch verified at target
+[00:25:43.836] [+] ─── ENTITY HOOK INSTALL COMPLETE ─────────────────────────
+[00:25:45.327] [*] setup_hook: already installed, skipping
+[00:25:53.840] [*] transient hook: EMERGENCY tear-down (age=10003ms, seen=0) — uninstalling
+[00:25:53.841] [*] ─── ENTITY HOOK UNINSTALL ────────────────────────────────
+[00:25:53.841] [*] step 1/3: restore original prologue @ 0x7FF6CA513410
+[00:25:53.841] [+]   PTE remap unhooked — original PFN restored, no .text write needed
+[00:25:53.843] [+]   prologue restored byte-for-byte
+[00:25:53.844] [*] step 2/3: settle (500ms) before freeing caves
+[00:25:54.353] [*] step 3/3: free caves via CMD_FREE
+[00:25:54.354] [+]   code cave freed @ 0xA10000
+[00:25:54.354] [+]   data cave freed @ 0x2260000
+[00:25:54.356] [+] ─── ENTITY HOOK UNINSTALLED ─────────────────────────────

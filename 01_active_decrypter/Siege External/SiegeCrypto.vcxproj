@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{C8B9D6E2-7A11-4C0A-9D3F-2345678901BC}</ProjectGuid>
+    <RootNamespace>SiegeCrypto</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <TargetName>siege_crypto</TargetName>
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)x64\$(Configuration)\obj_dll\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;WIN32_LEAN_AND_MEAN;SIEGE_CRYPTO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dll_project\dllmain.cpp" />
+    <ClCompile Include="src\crypto\decrypter.cpp" />
+    <ClCompile Include="src\crypto\site_registry.cpp" />
+    <ClCompile Include="src\crypto\trampoline.cpp" />
+    <ClCompile Include="src\crypto\server.cpp" />
+    <ClCompile Include="src\crypto\watch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\crypto\decrypter.h" />
+    <ClInclude Include="src\crypto\decrypt_t1.h" />
+    <ClInclude Include="src\crypto\decrypt_t3.h" />
+    <ClInclude Include="src\crypto\decrypt_t7.h" />
+    <ClInclude Include="src\crypto\decrypt_t4.h" />
+    <ClInclude Include="src\crypto\decrypt_t5.h" />
+    <ClInclude Include="src\crypto\site_registry.h" />
+    <ClInclude Include="src\crypto\tls.h" />
+    <ClInclude Include="src\crypto\trampoline.h" />
+    <ClInclude Include="src\crypto\types.h" />
+    <ClInclude Include="src\crypto\server.h" />
+    <ClInclude Include="src\crypto\watch.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

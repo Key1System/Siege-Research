@@ -1,0 +1,143 @@
+{
+ "VIEWMODEL": {
+  "RenderElementList::FirstPerson": {
+   "str_rva": "0x12748A7B",
+   "funcs": [
+    "0x4F353B0"
+   ]
+  }
+ },
+ "RENDER": {
+  "RenderPassDescLayout": {
+   "str_rva": "0x127215B5",
+   "funcs": [
+    "0xE1BBD0"
+   ]
+  },
+  "GfxGpuRenderPassBatchingElements": {
+   "str_rva": "0x1272CF7F",
+   "funcs": [
+    "0x40A5A50"
+   ]
+  }
+ },
+ "HEALTH": {
+  "currentHealth": {
+   "str_rva": "0x12757FB9",
+   "funcs": [
+    "0xEF39C10",
+    "0xF016E90"
+   ]
+  },
+  "healthAmount": {
+   "str_rva": "0x12724329",
+   "funcs": [
+    "0xEFDC710",
+    "0xEFEB9D0"
+   ]
+  },
+  "HEALTH:%.2f": {
+   "str_rva": "0x1275F230",
+   "funcs": [
+    "0xF047400"
+   ]
+  },
+  "LocalDataStreamGetHealth": {
+   "str_rva": "0x12757FC7",
+   "funcs": [
+    "0x1963690"
+   ]
+  },
+  "shellhealth": {
+   "str_rva": "0x12757FAD",
+   "funcs": [
+    "0xF0B6C90"
+   ]
+  }
+ },
+ "SKELETON": {
+  "wld::World::UpdatePostSkeleton": {
+   "str_rva": "0x127489ED",
+   "funcs": [
+    "0x582F20"
+   ]
+  },
+  "wldSkeletonBatched": {
+   "str_rva": "0x1277C40E",
+   "funcs": [
+    "0x582F20"
+   ]
+  }
+ },
+ "WEAPON": {
+  "WEAPONUSINGRECOILADDONS": {
+   "str_rva": "0x127922D5",
+   "funcs": [
+    "0xF047400"
+   ]
+  },
+  "weaponindex": {
+   "str_rva": "0x1271EA5C",
+   "funcs": [
+    "0x93CA70"
+   ]
+  },
+  "weaponslot": {
+   "str_rva": "0x127241B0",
+   "funcs": [
+    "0x93CA70"
+   ]
+  },
+  "Weapon_{}": {
+   "str_rva": "0x12715FF6",
+   "funcs": [
+    "0x3A72D00"
+   ]
+  },
+  "Fail Weapon Shoot": {
+   "str_rva": "0x1272407F",
+   "funcs": [
+    "0xEDD07A0"
+   ]
+  },
+  "WeaponSet": {
+   "str_rva": "0x127298D1",
+   "funcs": [
+    "0x254EB80"
+   ]
+  },
+  "LoadAllWeaponsAndGadgets": {
+   "str_rva": "0x1272D923",
+   "funcs": [
+    "0x6D7550"
+   ]
+  }
+ },
+ "MESH": {
+  "CachedRuntimeMeshes": {
+   "str_rva": "0x12735907",
+   "funcs": [
+    "0x468FC60"
+   ]
+  },
+  "subMeshes": {
+   "str_rva": "0x1273591B",
+   "funcs": [
+    "0xFD49010"
+   ]
+  },
+  "meshes": {
+   "str_rva": "0x12735900",
+   "funcs": [
+    "0x10B82610",
+    "0x10B9FDE0"
+   ]
+  },
+  "Mesh Vertices": {
+   "str_rva": "0x1273675E",
+   "funcs": [
+    "0x10A8CB60"
+   ]
+  }
+ }
+}

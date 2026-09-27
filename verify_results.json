@@ -1,0 +1,2428 @@
+{
+  "tally": {
+    "MISMATCH": 263,
+    "unverifiable": 126,
+    "VERIFIED": 11
+  },
+  "reasons": {
+    "the emulated run ended without executing the routine's final operation (last_pc is not last_": 2,
+    "the emulated run did not complete": 3,
+    "the routine READ from a page that could not be paged in and was zero-filled, so a TLS or glo": 107,
+    "the ciphertext could not be seeded into the emulator, so the emulated run did not compute on": 14
+  },
+  "mismatches": [
+    {
+      "rva": "0x10908B",
+      "fwd": "(ROR64(enc, TLS[0x240]) + 0x3F12A2ED988F9D91)",
+      "f": "0x260A237F3B436266",
+      "e": "0x123456789ABCDEF",
+      "x": "0x27296618B2E8AF89",
+      "reg": "r15",
+      "ran": true
+    },
+    {
+      "rva": "0x109090",
+      "fwd": "(ROR64(enc, TLS[0x240]) + 0x8B130F463736AF8D)",
+      "f": "0x720A8FD7D9EA7462",
+      "e": "0x123456789ABCDEF",
+      "x": "0x7329CAB05041B98D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3895C9",
+      "fwd": "ROR64(enc, TLS[0x330])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x14BD63C8BE17C962",
+      "reg": "r13",
+      "ran": true
+    },
+    {
+      "rva": "0x3895CD",
+      "fwd": "ROR64(enc, TLS[0x330])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x14BD63C8BE17C962",
+      "reg": "rsi",
+      "ran": true
+    },
+    {
+      "rva": "0x389855",
+      "fwd": "(((ROL64(enc, 0x1B) - TLS[0x1B0]) + 0xF87F96496DD9D23B) << 0x4)",
+      "f": "0x5347201B49E37160",
+      "e": "0xCB4DBB846C464DB0",
+      "x": "0x980A9B9F25A53CD0",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x38AAAA",
+      "fwd": "((enc - TLS[0x2B8]) >> 0x20)",
+      "f": "0x65312456",
+      "e": "0x1234567",
+      "x": "0x64126131",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x38B104",
+      "fwd": "(enc - TLS[0x1D0])",
+      "f": "0x66B7B5796BD4B5C4",
+      "e": "0x123456789ABCDEF",
+      "x": "0x6794F01EE27F782B",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x38B110",
+      "fwd": "((enc - TLS[0x1D0]) + 0xDC553246E585B1AB)",
+      "f": "0x430CE7C0515A676F",
+      "e": "0xDD7877AE6F317F9A",
+      "x": "0x9E74906E3E6B18F5",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x38B495",
+      "fwd": "(enc - TLS[0x208])",
+      "f": "0x62C98E040C36BE2B",
+      "e": "0x123456789ABCDEF",
+      "x": "0x63EACB63859D73C4",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x38F0CF",
+      "fwd": "(enc - TLS[0x2F0])",
+      "f": "0x2B797E6EC9293FF2",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2A5A3B094082F21D",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x38F15F",
+      "fwd": "((enc - TLS[0x320]) + 0xFA312A3D9A99CF7C)",
+      "f": "0x7E9772D31CDDE2E5",
+      "e": "0x123456789ABCDEF",
+      "x": "0x7FB437B495762F0A",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x39083A",
+      "fwd": "ROR64(enc, TLS[0x1C8])",
+      "f": "0x579BDE02468ACF13",
+      "e": "0x123456789ABCDEF",
+      "x": "0x56B89B65CF2102FC",
+      "reg": "r13",
+      "ran": true
+    },
+    {
+      "rva": "0x39083F",
+      "fwd": "ROR64(enc, TLS[0x1C8])",
+      "f": "0x579BDE02468ACF13",
+      "e": "0x123456789ABCDEF",
+      "x": "0x56B89B65CF2102FC",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3917EF",
+      "fwd": "ROR64(enc, TLS[0x228])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3941C5",
+      "fwd": "ROR64(enc, TLS[0x220])",
+      "f": "0xAF37BC048D159E26",
+      "e": "0x123456789ABCDEF",
+      "x": "0xAE14F96304BE53C9",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3945F7",
+      "fwd": "(enc - TLS[0x270])",
+      "f": "0xFD09D019652DF87C",
+      "e": "0x123456789ABCDEF",
+      "x": "0xFC2A957EEC863593",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x3945FC",
+      "fwd": "((enc - TLS[0x270]) + 0x56E64591A30080BD)",
+      "f": "0x53F015AB082E7939",
+      "e": "0x123456789ABCDEF",
+      "x": "0x52D350CC8185B4D6",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x394D2F",
+      "fwd": "(enc - TLS[0x2C0])",
+      "f": "0xE89A225A5C4F4B51",
+      "e": "0x123456789ABCDEF",
+      "x": "0xE9B9673DD5E486BE",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3A7CCC",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0xBD05993BA38AA04D)",
+      "f": "0xAE3B12F983AF08F9",
+      "e": "0x123456789ABCDEF",
+      "x": "0xAF18579E0A04C516",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x3A7CDA",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0x490F916C6C727E6D)",
+      "f": "0x3A450B2A4C96E719",
+      "e": "0x123456789ABCDEF",
+      "x": "0x3B664E4DC53D2AF6",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3A7F1D",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "rsi",
+      "ran": true
+    },
+    {
+      "rva": "0x3A83CF",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0x490F916C6C727E6D)",
+      "f": "0x3A450B2A4C96E719",
+      "e": "0x4A32D6D3F61E4C5C",
+      "x": "0x7077DDF9BA88AB45",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3A85B4",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3B2403",
+      "fwd": "ROL64(enc, TLS[0x3C8])",
+      "f": "0x1A2B3C4D5E6F7809",
+      "e": "0x123456789ABCDEF",
+      "x": "0x1B08792AD7C4B5E6",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3B2436",
+      "fwd": "ROR64(enc, TLS[0x3A0])",
+      "f": "0xCDEF0123456789AB",
+      "e": "0x123456789ABCDEF",
+      "x": "0xCCCC4444CCCC4444",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3B3130",
+      "fwd": "(enc - TLS[0x470])",
+      "f": "0x7907F0BC2036B9DF",
+      "e": "0x123456789ABCDEF",
+      "x": "0x7824B5DBA99D7430",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC08F",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0xBD05993BA38AA04D)",
+      "f": "0xAE3B12F983AF08F9",
+      "e": "0x123456789ABCDEF",
+      "x": "0xAF18579E0A04C516",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC0A1",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0x490F916C6C727E6D)",
+      "f": "0x3A450B2A4C96E719",
+      "e": "0x123456789ABCDEF",
+      "x": "0x3B664E4DC53D2AF6",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC2E6",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC2EE",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC94E",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0x490F916C6C727E6D)",
+      "f": "0x3A450B2A4C96E719",
+      "e": "0x4A32D6D3F61E4C5C",
+      "x": "0x7077DDF9BA88AB45",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x3BC953",
+      "fwd": "ROR64(enc, TLS[0x368])",
+      "f": "0xF13579BDE02468AC",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF0163CDA698FA543",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x3BCB3D",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x3C254E",
+      "fwd": "(enc + TLS[0x3E0])",
+      "f": "0x2F77408BEEB79651",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2E5405EC671C5BBE",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x3C3E59",
+      "fwd": "ROR64(enc, TLS[0x368])",
+      "f": "0xF13579BDE02468AC",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF0163CDA698FA543",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3C3E64",
+      "fwd": "ROR64(enc, TLS[0x368])",
+      "f": "0xF13579BDE02468AC",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF0163CDA698FA543",
+      "reg": "rdi",
+      "ran": true
+    },
+    {
+      "rva": "0x3C484A",
+      "fwd": "ROR64(enc, TLS[0x368])",
+      "f": "0xF13579BDE02468AC",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF0163CDA698FA543",
+      "reg": "r12",
+      "ran": true
+    },
+    {
+      "rva": "0x3E4749",
+      "fwd": "(enc - TLS[0x470])",
+      "f": "0x7907F0BC2036B9DF",
+      "e": "0x123456789ABCDEF",
+      "x": "0x7824B5DBA99D7430",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x3E48FB",
+      "fwd": "(enc - TLS[0x470])",
+      "f": "0x7907F0BC2036B9DF",
+      "e": "0x123456789ABCDEF",
+      "x": "0x7824B5DBA99D7430",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3EFDED",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3EFE1B",
+      "fwd": "ROL64((ROR64(enc, TLS[0x3A8]) ^ 0xBD34020748D91E9B), 0x10)",
+      "f": "0x36513043A2454D26",
+      "e": "0x456789ABCDEF0123",
+      "x": "0x7336B9E86FAA4C05",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3F070A",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3F073D",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x3F378C",
+      "fwd": "(enc - TLS[0x4A8])",
+      "f": "0xF5BBCCA077B8AE28",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF49889C7FE1363C7",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x3F379B",
+      "fwd": "(enc - TLS[0x4A8])",
+      "f": "0xF5BBCCA077B8AE28",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF49889C7FE1363C7",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x40BDF2",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x40BE20",
+      "fwd": "(ROL64((ROR64(enc, TLS[0x3A8]) ^ 0xBD34020748D91E9B), 0x10) >> 0x20)",
+      "f": "0x36513043",
+      "e": "0x456789AB",
+      "x": "0x7336B9E8",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x425262",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0xBD05993BA38AA04D)",
+      "f": "0xAE3B12F983AF08F9",
+      "e": "0x123456789ABCDEF",
+      "x": "0xAF18579E0A04C516",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4254D4",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x425993",
+      "fwd": "ROR64(enc, TLS[0x368])",
+      "f": "0xF13579BDE02468AC",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF0163CDA698FA543",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x425B6E",
+      "fwd": "ROL64(enc, TLS[0x368])",
+      "f": "0x4D5E6F78091A2B3C",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C7D2A1F80B1E6D3",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x43624F",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x436253",
+      "fwd": "ROL64((enc - TLS[0x3D0]), 0x18)",
+      "f": "0xC561277AA7381EEA",
+      "e": "0x6789ABCDEF012345",
+      "x": "0xA2E88CB748393DAF",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x436257",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x43625B",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "r15",
+      "ran": true
+    },
+    {
+      "rva": "0x43625F",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x436266",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x43626A",
+      "fwd": "(enc - TLS[0x3D0])",
+      "f": "0x381EEAC561277AA7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x393DAFA2E88CB748",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x436FDE",
+      "fwd": "(enc + TLS[0x3E0])",
+      "f": "0x2F77408BEEB79651",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2E5405EC671C5BBE",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x453F71",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x453F9F",
+      "fwd": "(ROR64(enc, TLS[0x3A8]) ^ 0xBD34020748D91E9B)",
+      "f": "0x4D2636513043A245",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4C057336B9E86FAA",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x457E62",
+      "fwd": "ROR64(enc, TLS[0x3A8])",
+      "f": "0xF0123456789ABCDE",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF1317131F1317131",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x459FB1",
+      "fwd": "ROR64(enc, TLS[0x3A0])",
+      "f": "0xCDEF0123456789AB",
+      "e": "0x123456789ABCDEF",
+      "x": "0xCCCC4444CCCC4444",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x45B23A",
+      "fwd": "ROL64(enc, TLS[0x3C8])",
+      "f": "0x1A2B3C4D5E6F7809",
+      "e": "0x123456789ABCDEF",
+      "x": "0x1B08792AD7C4B5E6",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x45BA83",
+      "fwd": "ROL64((ROR64(enc, TLS[0x3A8]) ^ TLS[0x410]), 0x10)",
+      "f": "0x49C6A266A8D738A8",
+      "e": "0x456789ABCDEF0123",
+      "x": "0xCA12BCD6538398B",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x47F359",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0xBD05993BA38AA04D)",
+      "f": "0xAE3B12F983AF08F9",
+      "e": "0x123456789ABCDEF",
+      "x": "0xAF18579E0A04C516",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x47FC99",
+      "fwd": "(ROR64(enc, TLS[0x368]) + 0x490F916C6C727E6D)",
+      "f": "0x3A450B2A4C96E719",
+      "e": "0x4A32D6D3F61E4C5C",
+      "x": "0x7077DDF9BA88AB45",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x4BC79D",
+      "fwd": "(enc & TLS[0x378])",
+      "f": "0x22446101208987",
+      "e": "0x0",
+      "x": "0x22446101208987",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x4BC84D",
+      "fwd": "(enc & TLS[0x378])",
+      "f": "0x22446101208987",
+      "e": "0x0",
+      "x": "0x22446101208987",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x4CFB37",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4CFBE6",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4CFD24",
+      "fwd": "ROL64(enc, TLS[0x610])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4CFDFF",
+      "fwd": "ROL64(enc, TLS[0x610])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D0763",
+      "fwd": "ROL64(enc, TLS[0x8E0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D087B",
+      "fwd": "ROL64(enc, TLS[0x8E0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D32DF",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x4D36CA",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x4D3ACD",
+      "fwd": "ROL64(enc, TLS[0x598])",
+      "f": "0x7F",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD90",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D3CE8",
+      "fwd": "ROL64(enc, TLS[0x598])",
+      "f": "0x7F",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD90",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D45DA",
+      "fwd": "ROL64(enc, TLS[0x890])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D46C9",
+      "fwd": "ROL64(enc, TLS[0x890])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D5BC3",
+      "fwd": "ROL64(enc, TLS[0xA08])",
+      "f": "0x7F",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD90",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D5CA6",
+      "fwd": "ROL64(enc, TLS[0xA08])",
+      "f": "0x7F",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD90",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D6B47",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D6C36",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7293",
+      "fwd": "ROL64(enc, TLS[0x610])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7B7C",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7C5F",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7D6D",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7E44",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D7F50",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4D806B",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DA029",
+      "fwd": "ROL64(enc, TLS[0xA80])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DA19F",
+      "fwd": "ROL64(enc, TLS[0xA80])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DAA6C",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DAC27",
+      "fwd": "ROL64(enc, TLS[0x760])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DC6A3",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4DC8AD",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4DDCF5",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4DDEB4",
+      "fwd": "ROL64(enc, TLS[0x5D0])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4E0FA5",
+      "fwd": "ROL64(enc, TLS[0xA80])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4E1088",
+      "fwd": "ROL64(enc, TLS[0xA80])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4E8BB5",
+      "fwd": "ROL64(enc, TLS[0x4E8])",
+      "f": "0xFE",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD11",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4E8C8C",
+      "fwd": "ROL64(enc, TLS[0x4E8])",
+      "f": "0xFE",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD11",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4E8E07",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4E8FEA",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4E91C0",
+      "fwd": "ROL64(enc, TLS[0x8E0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4E92CB",
+      "fwd": "ROL64(enc, TLS[0x8E0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4EAB64",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EAB8D",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EABB6",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EABDF",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EAC08",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EAC31",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4EAC5A",
+      "fwd": "ROL64((enc - TLS[0x768]), 0xD)",
+      "f": "0x63DF1358",
+      "e": "0x79BDF135",
+      "x": "0x1A62E26D",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEF0F",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEF3C",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEF69",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEF96",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEFC3",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EEFF0",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x4EF01D",
+      "fwd": "ROL64(enc, TLS[0x9E8])",
+      "f": "0xF13579BD",
+      "e": "0x89ABCDEF",
+      "x": "0x789EB452",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x4F6F32",
+      "fwd": "ROL64(enc, TLS[0x980])",
+      "f": "0xEF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD00",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x4F7031",
+      "fwd": "ROL64(enc, TLS[0x980])",
+      "f": "0xEF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD00",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x4FEBE3",
+      "fwd": "ROL64(enc, TLS[0x7C8])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x4FECE6",
+      "fwd": "ROL64(enc, TLS[0x7C8])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x500A47",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x500C4E",
+      "fwd": "ROL64(enc, TLS[0x6B0])",
+      "f": "0xFB",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD14",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x50B56F",
+      "fwd": "ROL64(enc, TLS[0x7C8])",
+      "f": "0xBDE02468ACF13579",
+      "e": "0x123456789ABCDEF",
+      "x": "0xBCC3610F255AF896",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x50B614",
+      "fwd": "ROL64(enc, TLS[0x7C8])",
+      "f": "0xBDE02468ACF13579",
+      "e": "0x123456789ABCDEF",
+      "x": "0xBCC3610F255AF896",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x51841B",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x51860B",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x5188E9",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x518C51",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x519DB9",
+      "fwd": "ROL64(enc, TLS[0x4E8])",
+      "f": "0xFE",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD11",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x519E50",
+      "fwd": "ROL64(enc, TLS[0x4E8])",
+      "f": "0xFE",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD11",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x51A65E",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x51A8BD",
+      "fwd": "ROL64(enc, TLS[0x788])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x51C021",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x51C114",
+      "fwd": "ROL64(enc, TLS[0x948])",
+      "f": "0xDF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD30",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x584C67",
+      "fwd": "ROR64(enc, TLS[0xBF8])",
+      "f": "0xCDEF0123456789AB",
+      "e": "0x123456789ABCDEF",
+      "x": "0xCCCC4444CCCC4444",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x5B493B",
+      "fwd": "((enc ^ 0x56DF29EF87BD0BEA) - TLS[0xB68])",
+      "f": "0x76F1CBE5CFBE8EBF",
+      "e": "0x2018A4C54B5396A9",
+      "x": "0x56E96F2084ED1816",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x5BA7EF",
+      "fwd": "ROR64(enc, TLS[0xBF8])",
+      "f": "0xCDEF0123456789AB",
+      "e": "0x123456789ABCDEF",
+      "x": "0xCCCC4444CCCC4444",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x60AA7A",
+      "fwd": "(enc - TLS[0xCB8])",
+      "f": "0x3E6ED8601D3ADE16",
+      "e": "0x123456789ABCDEF",
+      "x": "0x3F4D9D07949113F9",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6141FC",
+      "fwd": "ROL64(enc, TLS[0x1298])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x6218E3",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x621A57",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x621A63",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x621BCB",
+      "fwd": "ROL64(ROR64(enc, TLS[0x1000]), TLS[0x1000])",
+      "f": "0x123456789ABCDEF",
+      "e": "0x29",
+      "x": "0x123456789ABCDC6",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x621FEE",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62655E",
+      "fwd": "(enc - TLS[0xF50])",
+      "f": "0x8FF875FC0ADD1348",
+      "e": "0x123456789ABCDEF",
+      "x": "0x8EDB309B8376DEA7",
+      "reg": "r13",
+      "ran": true
+    },
+    {
+      "rva": "0x62A486",
+      "fwd": "ROR64(enc, TLS[0x1008])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x14BD63C8BE17C962",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x62E623",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E697",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E6D3",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E70F",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E74B",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E78C",
+      "fwd": "((enc + TLS[0x1200]) + 0x957FF79CCE49CD43)",
+      "f": "0x6896D409AE8DAE21",
+      "e": "0x123456789ABCDEF",
+      "x": "0x69B5916E272663CE",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x62E910",
+      "fwd": "ROL64((enc - TLS[0x11F8]), 0x1)",
+      "f": "0x8C4A6A2CD8520BDA",
+      "e": "0x2468ACF13579BDE",
+      "x": "0x8E0CE0E3CB059004",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x62E918",
+      "fwd": "ROL64(((enc - TLS[0x11F8]) + 0x3AE7257D2EADE9F4), 0x1)",
+      "f": "0x218B52735ADDFC3",
+      "e": "0x2468ACF13579BDE",
+      "x": "0x5E3FE826FA441D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x630C01",
+      "fwd": "ROL64(enc, TLS[0xCC0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x630E18",
+      "fwd": "ROL64(enc, TLS[0xCC0])",
+      "f": "0xBF",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD50",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x631193",
+      "fwd": "(enc - TLS[0x11F8])",
+      "f": "0x462535166C2905ED",
+      "e": "0x123456789ABCDEF",
+      "x": "0x47067071E582C802",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6311FD",
+      "fwd": "(enc - TLS[0x1200])",
+      "f": "0x2F2FAE623313BB00",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2E0CEB05BAB876EF",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6355DF",
+      "fwd": "(enc - TLS[0x1040])",
+      "f": "0xE12770BC113EB92",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF31326C48B8267D",
+      "reg": "r13",
+      "ran": true
+    },
+    {
+      "rva": "0x635945",
+      "fwd": "(enc - TLS[0x1040])",
+      "f": "0xE12770BC113EB92",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF31326C48B8267D",
+      "reg": "rbx",
+      "ran": true
+    },
+    {
+      "rva": "0x639CA4",
+      "fwd": "(ROL64((enc - TLS[0x10A8]), 0x33) + 0xC8E36495461A9FB3)",
+      "f": "0x3CAC840E97F10EB8",
+      "e": "0x385B6DAF7156ED11",
+      "x": "0x4F7E9A1E6A7E3A9",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x639CA8",
+      "fwd": "(ROL64(((enc - TLS[0x10A8]) + 0xB55EB3DB0D1105CF), 0x33) + 0xA0AAA38DB6D59C8E)",
+      "f": "0x42F16DFCA784741B",
+      "e": "0x3EA0579D80EA5274",
+      "x": "0x7C513A61276E266F",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x639CF2",
+      "fwd": "(ROL64((enc - TLS[0x10A8]), 0x33) + 0xC8E36495461A9FB3)",
+      "f": "0x3CAC840E97F10EB8",
+      "e": "0x6F78091A2B3C4D5E",
+      "x": "0x53D48D14BCCD43E6",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x639CF9",
+      "fwd": "(ROL64(((enc - TLS[0x10A8]) + 0xB55EB3DB0D1105CF), 0x33) + 0xA0AAA38DB6D59C8E)",
+      "f": "0x42F16DFCA784741B",
+      "e": "0x6F78091A2B3C4D5E",
+      "x": "0x2D8964E68CB83945",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x639D88",
+      "fwd": "(enc + TLS[0x10A8])",
+      "f": "0xDE5760944576ED65",
+      "e": "0x123456789ABCDEF",
+      "x": "0xDF7425F3CCDD208A",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x639E3B",
+      "fwd": "ROL64(enc, TLS[0xF68])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x63E05E",
+      "fwd": "ROL64(enc, TLS[0x10B8])",
+      "f": "0x8ACF13579BDE0246",
+      "e": "0x123456789ABCDEF",
+      "x": "0x8BEC56301275CFA9",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x640B97",
+      "fwd": "ROR64(enc, TLS[0x10E8])",
+      "f": "0x9ABCDEF012345678",
+      "e": "0x123456789ABCDEF",
+      "x": "0x9B9F9B979B9F9B97",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x640D37",
+      "fwd": "ROR64(enc, TLS[0x1008])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x14BD63C8BE17C962",
+      "reg": "rbp",
+      "ran": true
+    },
+    {
+      "rva": "0x640D3C",
+      "fwd": "ROR64(enc, TLS[0x1008])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x14BD63C8BE17C962",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x640F7B",
+      "fwd": "(enc - TLS[0xE30])",
+      "f": "0xB3FD4032DB027EBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2DE055552A9B355",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x643133",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6432AA",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6432B6",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x645F7B",
+      "fwd": "(enc + TLS[0xE10])",
+      "f": "0x19AC6874B708508D",
+      "e": "0x123456789ABCDEF",
+      "x": "0x188F2D133EA39D62",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x647F17",
+      "fwd": "(enc + TLS[0xF08])",
+      "f": "0x66AFA6EDA93F1D6B",
+      "e": "0x123456789ABCDEF",
+      "x": "0x678CE38A2094D084",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x651A61",
+      "fwd": "(enc - TLS[0x10A8])",
+      "f": "0x23EF2A3ACDE0AE79",
+      "e": "0x123456789ABCDEF",
+      "x": "0x22CC6F5D444B6396",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x651B97",
+      "fwd": "(enc - TLS[0xE30])",
+      "f": "0xB3FD4032DB027EBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2DE055552A9B355",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x651E3B",
+      "fwd": "(enc + TLS[0xE30])",
+      "f": "0x4E494A9C38551D24",
+      "e": "0x123456789ABCDEF",
+      "x": "0x4F6A0FFBB1FED0CB",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x659F23",
+      "fwd": "((enc - TLS[0xED0]) + 0x56E64591A30080BD)",
+      "f": "0x53F015AB082E7939",
+      "e": "0x123456789ABCDEF",
+      "x": "0x52D350CC8185B4D6",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x65A267",
+      "fwd": "(enc + TLS[0xED0])",
+      "f": "0x53CBAB5AE29A362",
+      "e": "0x123456789ABCDEF",
+      "x": "0x41FFFD227826E8D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x65E8F5",
+      "fwd": "(enc - TLS[0xE10])",
+      "f": "0xE89A225A5C4F4B51",
+      "e": "0x123456789ABCDEF",
+      "x": "0xE9B9673DD5E486BE",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x65F9E8",
+      "fwd": "(ROL64((enc - TLS[0x10A8]), 0x33) + 0xC8E36495461A9FB3)",
+      "f": "0x3CAC840E97F10EB8",
+      "e": "0x385B6DAF7156ED11",
+      "x": "0x4F7E9A1E6A7E3A9",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x65F9F0",
+      "fwd": "(ROL64(((enc - TLS[0x10A8]) + 0xB55EB3DB0D1105CF), 0x33) + 0xA0AAA38DB6D59C8E)",
+      "f": "0x42F16DFCA784741B",
+      "e": "0x3EA0579D80EA5274",
+      "x": "0x7C513A61276E266F",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x65FA42",
+      "fwd": "(ROL64((enc - TLS[0x10A8]), 0x33) + 0xC8E36495461A9FB3)",
+      "f": "0x3CAC840E97F10EB8",
+      "e": "0x6F78091A2B3C4D5E",
+      "x": "0x53D48D14BCCD43E6",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x65FA49",
+      "fwd": "(ROL64(((enc - TLS[0x10A8]) + 0xB55EB3DB0D1105CF), 0x33) + 0xA0AAA38DB6D59C8E)",
+      "f": "0x42F16DFCA784741B",
+      "e": "0x6F78091A2B3C4D5E",
+      "x": "0x2D8964E68CB83945",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x65FAC5",
+      "fwd": "(enc + TLS[0x10A8])",
+      "f": "0xDE5760944576ED65",
+      "e": "0x123456789ABCDEF",
+      "x": "0xDF7425F3CCDD208A",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x65FB92",
+      "fwd": "ROL64(enc, TLS[0xF68])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6616A7",
+      "fwd": "ROL64(enc, TLS[0xCC0])",
+      "f": "0xBC048D159E26AF37",
+      "e": "0x123456789ABCDEF",
+      "x": "0xBD27C872178D62D8",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6616AB",
+      "fwd": "ROL64(enc, TLS[0xCC0])",
+      "f": "0xBC048D159E26AF37",
+      "e": "0x123456789ABCDEF",
+      "x": "0xBD27C872178D62D8",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x661842",
+      "fwd": "(enc - TLS[0xF98])",
+      "f": "0x842B5685CD6A8F1",
+      "e": "0x123456789ABCDEF",
+      "x": "0x961F00FD57D651E",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x663A8A",
+      "fwd": "ROL64(enc, TLS[0x1298])",
+      "f": "0xFD",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD12",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x66C654",
+      "fwd": "ROL64(enc, TLS[0x12A0])",
+      "f": "0x7F",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD90",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x66CDC8",
+      "fwd": "ROL64(enc, TLS[0xEA8])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x66CE6B",
+      "fwd": "ROL64(enc, TLS[0xEA8])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x66CF57",
+      "fwd": "ROL64(enc, TLS[0xEA8])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x66D032",
+      "fwd": "ROL64(enc, TLS[0xEA8])",
+      "f": "0xF7",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD18",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x69F927",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x69FA3F",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "rbp",
+      "ran": true
+    },
+    {
+      "rva": "0x6B1A7D",
+      "fwd": "(enc - TLS[0x1040])",
+      "f": "0xE12770BC113EB92",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF31326C48B8267D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6B2D82",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B2D8E",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B2FBD",
+      "fwd": "(enc + TLS[0xEE0])",
+      "f": "0xF1B588497EE9EC24",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF096CD2EF74221CB",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B2FE0",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B2FEC",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B30BA",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6B39D4",
+      "fwd": "(enc + TLS[0xFB0])",
+      "f": "0xF7523950FAB8CF68",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF6717C3773130287",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B6235",
+      "fwd": "(enc - TLS[0x1200])",
+      "f": "0x2F2FAE623313BB00",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2E0CEB05BAB876EF",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6B6792",
+      "fwd": "(ROR64(enc, TLS[0x1000]) << 0x3)",
+      "f": "0xBC048D10",
+      "e": "0x4D5E6F78",
+      "x": "0xF15AE268",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6B6BEC",
+      "fwd": "(enc - TLS[0xED0])",
+      "f": "0xFD09D019652DF87C",
+      "e": "0x123456789ABCDEF",
+      "x": "0xFC2A957EEC863593",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B6BF1",
+      "fwd": "((enc - TLS[0xED0]) + 0x56E64591A30080BD)",
+      "f": "0x53F015AB082E7939",
+      "e": "0x58098AF92CAC4EAC",
+      "x": "0xBF99F5224823795",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B778C",
+      "fwd": "(enc - TLS[0xED0])",
+      "f": "0xFD09D019652DF87C",
+      "e": "0x123456789ABCDEF",
+      "x": "0xFC2A957EEC863593",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B7791",
+      "fwd": "((enc - TLS[0xED0]) + 0x56E64591A30080BD)",
+      "f": "0x53F015AB082E7939",
+      "e": "0x58098AF92CAC4EAC",
+      "x": "0xBF99F5224823795",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6B8044",
+      "fwd": "ROL64(enc, TLS[0x10B8])",
+      "f": "0x8ACF13579BDE0246",
+      "e": "0x123456789ABCDEF",
+      "x": "0x8BEC56301275CFA9",
+      "reg": "r15",
+      "ran": true
+    },
+    {
+      "rva": "0x6B81C2",
+      "fwd": "ROL64(enc, TLS[0x1038])",
+      "f": "0xFE",
+      "e": "0x89ABCDEF",
+      "x": "0x89ABCD11",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6B9B50",
+      "fwd": "(enc - TLS[0x1040])",
+      "f": "0xE12770BC113EB92",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF31326C48B8267D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x6B9BE9",
+      "fwd": "(enc - TLS[0x1040])",
+      "f": "0xE12770BC113EB92",
+      "e": "0x123456789ABCDEF",
+      "x": "0xF31326C48B8267D",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB1B3",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB1BF",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB2C3",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB2CF",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB4F1",
+      "fwd": "((enc + TLS[0xEE0]) + 0x67BE0D0F1975F8E4)",
+      "f": "0x59739558985FE508",
+      "e": "0x123456789ABCDEF",
+      "x": "0x5850D03F11F428E7",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB5EA",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB5F6",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB8D3",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB8DF",
+      "fwd": "((enc - TLS[0xEE0]) + 0x9841F2F0E68A071C)",
+      "f": "0xA8D2F5767AF7B6D6",
+      "e": "0x123456789ABCDEF",
+      "x": "0xA9F1B011F35C7B39",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BB9BD",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6BC658",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "r8",
+      "ran": true
+    },
+    {
+      "rva": "0x6BCA08",
+      "fwd": "(enc - TLS[0xEE0])",
+      "f": "0x10910285946DAFBA",
+      "e": "0x123456789ABCDEF",
+      "x": "0x11B247E21DC66255",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6C97DF",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6C985C",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6C9968",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6C99C6",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "r11",
+      "ran": true
+    },
+    {
+      "rva": "0x6C9A1F",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x6C9AA0",
+      "fwd": "ROL64(enc, TLS[0x1240])",
+      "f": "0x5E6F7C4D",
+      "e": "0x89ABCDEF",
+      "x": "0xD7C4B1A2",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6CD172",
+      "fwd": "ROL64(ROR64(enc, TLS[0x1000]), TLS[0x1000])",
+      "f": "0x123456789ABCDEF",
+      "e": "0x579BDE02468ACF13",
+      "x": "0x56B89B65CF2102FC",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6CD181",
+      "fwd": "((ROR64(enc, TLS[0x1000]) >> 0x20) & 0x3FFFFFFF)",
+      "f": "0x33C4D5E6",
+      "e": "0x1234567",
+      "x": "0x32E79081",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6CF9C6",
+      "fwd": "ROL64((enc - TLS[0x11F8]), 0x1)",
+      "f": "0x8C4A6A2CD8520BDA",
+      "e": "0x2468ACF13579BDE",
+      "x": "0x8E0CE0E3CB059004",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x6CF9CB",
+      "fwd": "(enc - TLS[0x11F8])",
+      "f": "0x462535166C2905ED",
+      "e": "0x123456789ABCDEF",
+      "x": "0x47067071E582C802",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6CFC5D",
+      "fwd": "ROL64((enc - TLS[0x10A8]), 0x33)",
+      "f": "0x73C91F7951D66F05",
+      "e": "0x6F78091A2B3C4D5E",
+      "x": "0x1CB116637AEA225B",
+      "reg": "r9",
+      "ran": true
+    },
+    {
+      "rva": "0x6CFC61",
+      "fwd": "(enc - TLS[0x10A8])",
+      "f": "0x23EF2A3ACDE0AE79",
+      "e": "0x123456789ABCDEF",
+      "x": "0x22CC6F5D444B6396",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6D5961",
+      "fwd": "(enc + TLS[0xD38])",
+      "f": "0x2AA03E4865DA5ED7",
+      "e": "0x123456789ABCDEF",
+      "x": "0x2B837B2FEC719338",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6D605C",
+      "fwd": "ROL64((enc + TLS[0x12B0]), 0x15)",
+      "f": "0xEFB02ECBE0316184",
+      "e": "0xACF13579BDE02468",
+      "x": "0x43411BB25DD145EC",
+      "reg": "rcx",
+      "ran": true
+    },
+    {
+      "rva": "0x6DD76F",
+      "fwd": "ROR64(enc, TLS[0x1008])",
+      "f": "0x159E26AF37BC048D",
+      "e": "0x0",
+      "x": "0x159E26AF37BC048D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x6E49C6",
+      "fwd": "ROR64(enc, TLS[0x10E8])",
+      "f": "0x9ABCDEF012345678",
+      "e": "0x123456789ABCDEF",
+      "x": "0x9B9F9B979B9F9B97",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x6E4AE7",
+      "fwd": "(enc - TLS[0xF58])",
+      "f": "0x195FA387B5391111",
+      "e": "0x123456789ABCDEF",
+      "x": "0x187CE6E03C92DCFE",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x70BB7F",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x70BEC5",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x70BED1",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r10",
+      "ran": true
+    },
+    {
+      "rva": "0x70BF56",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x70BF62",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x70C0CA",
+      "fwd": "ROL64((enc + TLS[0xF98]), 0x2D)",
+      "f": "0x1E5DBF407AACD6D0",
+      "e": "0x79BDE02468ACF135",
+      "x": "0x67E05F64120027E5",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x70C29E",
+      "fwd": "(enc + TLS[0xF98])",
+      "f": "0xFA03D566B680F2ED",
+      "e": "0x123456789ABCDEF",
+      "x": "0xFB2090013F2B3F02",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x70CD3F",
+      "fwd": "ROL64(enc, TLS[0xCC0])",
+      "f": "0xBC048D159E26AF37",
+      "e": "0x123456789ABCDEF",
+      "x": "0xBD27C872178D62D8",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x8E23C8",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rax",
+      "ran": true
+    },
+    {
+      "rva": "0x8E2530",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "rdx",
+      "ran": true
+    },
+    {
+      "rva": "0x8E253C",
+      "fwd": "ROR64(enc, TLS[0x1000])",
+      "f": "0xB3C4D5E6F78091A2",
+      "e": "0x123456789ABCDEF",
+      "x": "0xB2E790817E2B5C4D",
+      "reg": "r11",
+      "ran": true
+    }
+  ],
+  "verified": [
+    [
+      "0x45752E",
+      "(ROL64((enc + 0xF38CC23586BD3B), 0x33) - TLS[0x4B8])"
+    ],
+    [
+      "0x47F597",
+      "ROL64(enc, TLS[0x368])"
+    ],
+    [
+      "0x4A5456",
+      "(enc - TLS[0x6F0])"
+    ],
+    [
+      "0x4E6867",
+      "ROL64((ROL64(enc, 0xD) + 0xFFFFFFFFD83EBD64), TLS[0x9E8])"
+    ],
+    [
+      "0x4E68C7",
+      "ROL64((ROL64(enc, 0xD) + 0xFFFFFFFFD83EBD64), TLS[0x9E8])"
+    ],
+    [
+      "0x616D20",
+      "((ROL64(enc, 0x4) - TLS[0xEF0]) >> 0x20)"
+    ],
+    [
+      "0x616D25",
+      "(ROL64(enc, 0x4) - TLS[0xEF0])"
+    ],
+    [
+      "0x62A4F6",
+      "ROL64(enc, TLS[0x1008])"
+    ],
+    [
+      "0x6B3778",
+      "ROL64(enc, TLS[0x1208])"
+    ],
+    [
+      "0x6B3A84",
+      "(enc - TLS[0x1160])"
+    ],
+    [
+      "0x70CCF2",
+      "(enc - TLS[0xF78])"
+    ]
+  ]
+}
